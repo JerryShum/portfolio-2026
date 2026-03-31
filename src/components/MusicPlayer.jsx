@@ -8,39 +8,20 @@ const MusicPlayer = () => {
    const [duration, setDuration] = useState(0);
    const audioRef = useRef(null);
 
-   // Your music playlist - add your actual music files here
+   // music playlist --> links to mp3 & thumbnail
    const playlist = [
       {
          title: 'Sunset Bridge',
          artist: 'ATLUS Sound Team',
-         src: '/music/sunset_bridge.mp3', // Replace with your actual music file name
-         image: '', // Replace with your album artwork
-      },
-      {
-         title: 'Thus Spoke Brooks',
-         artist: 'ATLUS Sound Team',
-         src: '/music/thus spoke brooks.mp3', // Replace with your actual music file name
-         image: '', // Replace with your album artwork
-      },
-      {
-         title: '満ちていく体温',
-         artist: 'BLU-Swing',
-         src: '/music/満ちていく体温.mp3', // Replace with your actual music file name
-         image: '', // Replace with your album artwork
-      },
-      {
-         title: '연애소설 (LOVE STORY)',
-         artist: 'EPIK HIGH ft. IU',
-         src: '/music/LOVE STORY.mp3', // Replace with your actual music file name
-         image: '/', // Replace with your album artwork
+         src: '/music/mp3/sunset_bridge.mp3',
+         image: '/music/thumbnails/p5_thumbnail.webp',
       },
       {
          title: 'No More What ifs',
          artist: 'Lyn',
-         src: '/music/No More What Ifs.mp3', // Replace with your actual music file name
-         image: '/', // Replace with your album artwork
+         src: '/music/No More What Ifs.mp3',
+         image: '/',
       },
-      // Add more songs as needed
    ];
 
    const togglePlayPause = () => {
@@ -120,7 +101,7 @@ const MusicPlayer = () => {
       >
          <div className="flex flex-col gap-2">
             {/* Main Player Row */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-4">
                {/* Track Image */}
                <div className="w-12 h-12 bg-[#DBCEB4]/20 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
                   {playlist[currentTrack]?.image &&
@@ -134,26 +115,27 @@ const MusicPlayer = () => {
                            e.target.nextSibling.style.display = 'flex';
                         }}
                      />
-                  ) : null}
-                  <svg
-                     className={`w-6 h-6 text-[#9B7B6A] ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
-                     fill="currentColor"
-                     viewBox="0 0 20 20"
-                  >
-                     <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                        clipRule="evenodd"
-                     />
-                  </svg>
+                  ) : (
+                     <svg
+                        className={`w-6 h-6 text-[#9B7B6A] ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                     >
+                        <path
+                           fillRule="evenodd"
+                           d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                           clipRule="evenodd"
+                        />
+                     </svg>
+                  )}
                </div>
 
                {/* Track Info */}
                <div className="min-w-0 flex-shrink-0">
-                  <h3 className="text-[#3D1C0E] font-semibold text-sm truncate w-32">
+                  <h3 className="text-[#3D1C0E] font-semibold text-sm truncate ">
                      {playlist[currentTrack]?.title || 'No Track'}
                   </h3>
-                  <p className="text-[#9B7B6A] text-xs truncate w-32">
+                  <p className="text-[#9B7B6A] text-xs truncate ">
                      {playlist[currentTrack]?.artist || 'Unknown Artist'}
                   </p>
                </div>
