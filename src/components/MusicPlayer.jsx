@@ -17,10 +17,16 @@ const MusicPlayer = () => {
          image: '/music/thumbnails/p5_thumbnail.webp',
       },
       {
-         title: 'No More What ifs',
-         artist: 'Lyn',
-         src: '/music/No More What Ifs.mp3',
-         image: '/',
+         title: 'Butterfly Kiss',
+         artist: 'ATLUS Sound Team',
+         src: '/music/mp3/butterfly_kiss.mp3',
+         image: '/music/thumbnails/p5_thumbnail.webp',
+      },
+      {
+         title: 'Black Heaven',
+         artist: 'Studio EIM',
+         src: '/music/mp3/black_heaven.mp3',
+         image: '/music/thumbnails/black_heaven.webp',
       },
    ];
 
