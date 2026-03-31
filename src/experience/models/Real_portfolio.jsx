@@ -9,58 +9,72 @@ function HoverableText({ route, geometry, material, position, rotation, onGlobal
    const meshRef = useRef();
    const [localHovered, setLocalHovered] = useState(false);
 
-   // Center the geometry's pivot point so scaling expands from the middle instead of shifting it
-   const { centeredGeo, offset } = React.useMemo(() => {
+   // Center the geometry's pivot and capture bounding box size for the hitbox
+   const { centeredGeo, offset, size } = React.useMemo(() => {
       const geo = geometry.clone();
       geo.computeBoundingBox();
       const center = new THREE.Vector3();
       geo.boundingBox.getCenter(center);
       geo.translate(-center.x, -center.y, -center.z);
-      return { centeredGeo: geo, offset: center };
+      const size = new THREE.Vector3();
+      geo.boundingBox.getSize(size);
+      return { centeredGeo: geo, offset: center, size };
    }, [geometry]);
 
-   useFrame((state, delta) => {
+   useFrame(() => {
       if (!meshRef.current) return;
       const targetScale = localHovered ? 1.15 : 1.0;
       meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
       
       if (meshRef.current.material) {
-         const targetEmissive = localHovered ? 1.2 : 0.4;
+         const targetEmissive = localHovered ? 1.0 : 0.0;
          meshRef.current.material.emissiveIntensity = THREE.MathUtils.lerp(
-               meshRef.current.material.emissiveIntensity || 0, 
+               meshRef.current.material.emissiveIntensity ?? 0, 
                targetEmissive, 
-               0.1
+               0.12
          );
       }
    });
 
    const [mat] = useState(() => {
       const m = material.clone();
-      m.color = new THREE.Color(0xFFFFFF); // Pure white base
-      m.emissive = new THREE.Color(0xD4831A); // Tim Hortons amber glow
-      m.emissiveIntensity = 0.4; // Base emissive intensity to make it pop in any light
+      m.color = new THREE.Color(0xFFFFFF);
+      m.emissive = new THREE.Color(0xD4831A);
+      m.emissiveIntensity = 0;
       return m;
    });
 
+   // Padding added to each side of the hitbox (in local units)
+   const pad = 0.08;
+
    return (
       <group position={position} rotation={rotation}>
+         {/* Visual text — no pointer events */}
          <mesh
             ref={meshRef}
             geometry={centeredGeo}
             material={mat}
             position={[offset.x, offset.y, offset.z]}
-            onClick={(e) => { e.stopPropagation(); if (route) navigate(route); }}
-            onPointerOver={(e) => { 
-                  e.stopPropagation(); 
-                  setLocalHovered(true); 
-                  if (onGlobalPointerOver) onGlobalPointerOver(e); 
-            }}
-            onPointerOut={(e) => { 
-                  e.stopPropagation(); 
-                  setLocalHovered(false); 
-                  if (onGlobalPointerOut) onGlobalPointerOut(e); 
-            }}
          />
+
+         {/* Invisible padded hitbox — handles all interaction */}
+         <mesh
+            position={[offset.x, offset.y, offset.z]}
+            onClick={(e) => { e.stopPropagation(); if (route) navigate(route); }}
+            onPointerOver={(e) => {
+               e.stopPropagation();
+               setLocalHovered(true);
+               if (onGlobalPointerOver) onGlobalPointerOver(e);
+            }}
+            onPointerOut={(e) => {
+               e.stopPropagation();
+               setLocalHovered(false);
+               if (onGlobalPointerOut) onGlobalPointerOut(e);
+            }}
+         >
+            <boxGeometry args={[size.x + pad * 2, size.y + pad * 2, Math.max(size.z, 0.02) + pad]} />
+            <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+         </mesh>
       </group>
    );
 }
