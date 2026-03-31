@@ -32,7 +32,9 @@ function NavHelper() {
                      fontWeight: isActive ? 700 : 500,
                      textDecoration: 'none',
                      cursor: 'pointer',
-                     background: isActive ? '#C8102E' : 'rgba(255,255,255,0.85)',
+                     background: isActive
+                        ? '#C8102E'
+                        : 'rgba(255,255,255,0.85)',
                      color: isActive ? '#FFFFFF' : '#3D1C0E',
                      border: `1px solid ${isActive ? '#C8102E' : 'rgba(61,28,14,0.15)'}`,
                      boxShadow: isActive
@@ -41,22 +43,28 @@ function NavHelper() {
                      transition: 'all 0.18s ease',
                      backdropFilter: 'blur(8px)',
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter={(e) => {
                      if (!isActive) {
                         e.currentTarget.style.background = '#FFFFFF';
                         e.currentTarget.style.borderColor = '#C8102E';
                         e.currentTarget.style.color = '#C8102E';
                      }
                   }}
-                  onMouseLeave={e => {
+                  onMouseLeave={(e) => {
                      if (!isActive) {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.85)';
-                        e.currentTarget.style.borderColor = 'rgba(61,28,14,0.15)';
+                        e.currentTarget.style.background =
+                           'rgba(255,255,255,0.85)';
+                        e.currentTarget.style.borderColor =
+                           'rgba(61,28,14,0.15)';
                         e.currentTarget.style.color = '#3D1C0E';
                      }
                   }}
                >
-                  <span style={{ fontSize: '0.7rem' }}>{emoji}</span>
+                  {emoji ? (
+                     <span style={{ fontSize: '0.7rem' }}>{emoji}</span>
+                  ) : (
+                     ''
+                  )}
                   {label}
                </NavLink>
             );
