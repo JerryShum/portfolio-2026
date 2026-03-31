@@ -8,3 +8,16 @@ body {
    width: 100%;
    overflow: hidden;
 }
+
+@keyframes progress-glow {
+   0%, 100% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+   }
+   50% {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+   }
+}
+
+.animate-progress-glow {
+   animation: progress-glow 2s infinite ease-in-out;
+}
