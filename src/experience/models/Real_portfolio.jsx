@@ -1,10 +1,11 @@
 import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
+import gsap from 'gsap';
 
-function HoverableText({ route, geometry, material, position, rotation, onGlobalPointerOver, onGlobalPointerOut }) {
+function HoverableText({ route, onClickAction, geometry, material, position, rotation, onGlobalPointerOver, onGlobalPointerOut }) {
    const navigate = useNavigate();
    const meshRef = useRef();
    const [localHovered, setLocalHovered] = useState(false);
@@ -60,7 +61,11 @@ function HoverableText({ route, geometry, material, position, rotation, onGlobal
          {/* Invisible padded hitbox — handles all interaction */}
          <mesh
             position={[offset.x, offset.y, offset.z]}
-            onClick={(e) => { e.stopPropagation(); if (route) navigate(route); }}
+            onClick={(e) => { 
+               e.stopPropagation(); 
+               if (onClickAction) onClickAction(e);
+               else if (route) navigate(route); 
+            }}
             onPointerOver={(e) => {
                e.stopPropagation();
                setLocalHovered(true);
@@ -82,8 +87,35 @@ function HoverableText({ route, geometry, material, position, rotation, onGlobal
 const Model = forwardRef((props, ref) => {
    const { nodes, materials } = useGLTF('/models/real_portfolio.glb');
    const navigate = useNavigate();
+   const { camera, controls } = useThree();
    
    const [hovered, setHovered] = useState(false);
+
+   const handleMenuClick = useCallback(() => {
+      const newCamPos = new THREE.Vector3(-0.507, 2.497, 0.192); 
+const newTarget = new THREE.Vector3(-1.149, 2.497, 0.185);
+
+      // Animate camera position
+      gsap.to(camera.position, {
+         x: newCamPos.x,
+         y: newCamPos.y,
+         z: newCamPos.z,
+         duration: 1.5,
+         ease: 'power3.inOut'
+      });
+
+      // Animate orbit controls target
+      if (controls) {
+         gsap.to(controls.target, {
+            x: newTarget.x,
+            y: newTarget.y,
+            z: newTarget.z,
+            duration: 1.5,
+            ease: 'power3.inOut',
+            onUpdate: () => controls.update() // ensure constraints or rerenders fire
+         });
+      }
+   }, [camera, controls]);
 
    useEffect(() => {
       document.body.style.cursor = hovered ? 'pointer' : 'auto';
@@ -119,7 +151,7 @@ const Model = forwardRef((props, ref) => {
          <mesh geometry={nodes.Menu_Images001.geometry} material={materials['Menu - Projects.002']} position={[-1.16, 2.493, 0.7]} rotation={[Math.PI / 2, -0.13, -Math.PI / 2]} />
          <mesh geometry={nodes.Menu_Images002.geometry} material={materials['Menu - Main.002']} position={[-1.16, 2.493, 0.7]} rotation={[Math.PI / 2, -0.13, -Math.PI / 2]} />
          <mesh geometry={nodes.Menu_Images003.geometry} material={materials['Menu - Contacts.002']} position={[-1.16, 2.493, 0.7]} rotation={[Math.PI / 2, -0.13, -Math.PI / 2]} />
-         <mesh geometry={nodes.World.geometry} material={materials['PaletteMaterial001.003']} position={[0.166, 0.304, 0.259]} scale={26.661} />
+         <mesh geometry={nodes.World.geometry} material={materials['PaletteMaterial001.003']} position={[0.166, 0.304, 0.259]} scale={5} />
          
          <HoverableText
             route="/"
@@ -168,6 +200,7 @@ const Model = forwardRef((props, ref) => {
          />
          <HoverableText
             route=""
+            onClickAction={handleMenuClick}
             geometry={nodes['Text_-_Menu'].geometry}
             material={nodes['Text_-_Menu'].material}
             position={[2.088, 1.977, -1.217]}

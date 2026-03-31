@@ -1,7 +1,7 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
 import Scene from './Scene';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTransitionStore } from '../store/useTransitionStore';
 
@@ -18,7 +18,7 @@ function Experience() {
 
    return (
       <>
-         <Canvas shadow={true} onPointerMissed={handleCanvasClick}>
+         <Canvas shadows onPointerMissed={handleCanvasClick}>
             <color attach="background" args={['#FFFAF0']} />
             <PerspectiveCamera
                makeDefault
