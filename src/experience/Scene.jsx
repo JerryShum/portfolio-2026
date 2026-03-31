@@ -7,15 +7,18 @@ function Scene() {
    return (
       <>
          <Suspense>
-            <fog attach="fog" args={['#171720', 5, 15]} />
-            <ambientLight intensity={1.5} />
-            <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
+            <fog attach="fog" args={['#FFFAF0', 8, 25]} />
+            <ambientLight intensity={2} />
+            <directionalLight
+               position={[10, 10, 10]}
+               intensity={1}
+               color="#ffffff"
+               castShadow
+            />
             <Model />
          </Suspense>
       </>
    );
 }
-
-
 
 export default Scene;
