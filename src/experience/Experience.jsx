@@ -2,13 +2,16 @@ import { Canvas } from '@react-three/fiber';
 import Scene from './Scene';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Experience() {
    const controlsRef = useRef();
+   const navigate = useNavigate();
+
    return (
       <>
-         <Canvas shadow={true}>
-            <color attach="background" args={['#171720']} />
+         <Canvas shadow={true} onPointerMissed={() => navigate('/')}>
+            <color attach="background" args={['#FFFAF0']} />
             <PerspectiveCamera
                makeDefault
                position={[
