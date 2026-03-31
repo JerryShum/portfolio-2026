@@ -1,34 +1,9 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useRef, useEffect } from 'react';
 import Model from './models/Real_portfolio';
 import { useThree } from '@react-three/fiber';
+import * as THREE from 'three';
 
 function Scene() {
-   const { camera, controls } = useThree();
-
-   // useEffect(() => {
-   //    const handleKeyPress = (e) => {
-   //       if (e.key === 'c' || e.key === 'C') {
-   //          const position = camera.position.toArray();
-   //          const rotation = camera.rotation.toArray().slice(0, 3);
-   //          const fov = camera.fov;
-   //          const target = controls?.target.toArray() || [0, 0, 0];
-
-   //          console.log('--- CAMERA VIEW CONFIG ---');
-   //          console.log(
-   //             `<PerspectiveCamera\n  makeDefault\n  position={[${position.join(
-   //                ', '
-   //             )}]}\n  rotation={[${rotation.join(', ')}]}\n  fov={${fov}}\n/>`
-   //          );
-   //          console.log(`<OrbitControls target={[${target.join(', ')}]} />`);
-
-   //          console.log('---------------------------');
-   //       }
-   //    };
-
-   //    window.addEventListener('keydown', handleKeyPress);
-   //    return () => window.removeEventListener('keydown', handleKeyPress);
-   // }, [camera, controls]);
-
    return (
       <>
          <Suspense>
@@ -40,5 +15,7 @@ function Scene() {
       </>
    );
 }
+
+
 
 export default Scene;
