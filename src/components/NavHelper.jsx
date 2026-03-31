@@ -1,11 +1,11 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
 const routes = [
-   { path: '/', label: 'Home', emoji: '🏠' },
-   { path: '/about', label: 'About', emoji: '☕' },
-   { path: '/projects', label: 'Projects', emoji: '🍩' },
-   { path: '/experience', label: 'Experience', emoji: '📋' },
-   { path: '/blog', label: 'Blog', emoji: '📰' },
+   { path: '/', label: 'Home', emoji: '' },
+   { path: '/about', label: 'About', emoji: '' },
+   { path: '/projects', label: 'Projects', emoji: '' },
+   { path: '/experience', label: 'Experience', emoji: '' },
+   { path: '/blog', label: 'Blog', emoji: '' },
 ];
 
 function NavHelper() {
