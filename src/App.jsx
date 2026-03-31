@@ -3,6 +3,7 @@ import Experience from './experience/Experience';
 import LoadingScreen from './components/LoadingScreen';
 import TransitionComponent from './components/TransitionComponent';
 import NavHelper from './components/NavHelper';
+import MusicPlayer from './components/MusicPlayer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -17,6 +18,7 @@ function App() {
       <div className="relative w-full h-screen overflow-hidden">
          <LoadingScreen />
          <NavHelper />
+         <MusicPlayer />
 
          {/* Background 3D Layer */}
          <div className="absolute inset-0 z-0">
