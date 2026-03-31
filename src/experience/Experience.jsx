@@ -2,15 +2,23 @@ import { Canvas } from '@react-three/fiber';
 import Scene from './Scene';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useTransitionStore } from '../store/useTransitionStore';
 
 function Experience() {
    const controlsRef = useRef();
-   const navigate = useNavigate();
+   const location = useLocation();
+   const { startExit, isExiting } = useTransitionStore();
+
+   const handleCanvasClick = () => {
+      // Only animate out if we're on a non-home page and not already transitioning
+      if (location.pathname === '/' || isExiting) return;
+      startExit('/');
+   };
 
    return (
       <>
-         <Canvas shadow={true} onPointerMissed={() => navigate('/')}>
+         <Canvas shadow={true} onPointerMissed={handleCanvasClick}>
             <color attach="background" args={['#FFFAF0']} />
             <PerspectiveCamera
                makeDefault

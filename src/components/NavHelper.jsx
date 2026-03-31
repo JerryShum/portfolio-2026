@@ -1,4 +1,5 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useTransitionStore } from '../store/useTransitionStore';
 
 const routes = [
    { path: '/', label: 'Home', emoji: '' },
@@ -10,6 +11,13 @@ const routes = [
 
 function NavHelper() {
    const location = useLocation();
+   const { startExit, isExiting } = useTransitionStore();
+
+   const handleNav = (path) => {
+      // Already on this page or mid-transition — skip
+      if (path === location.pathname || isExiting) return;
+      startExit(path);
+   };
 
    return (
       <div
@@ -19,9 +27,9 @@ function NavHelper() {
          {routes.map(({ path, label, emoji }) => {
             const isActive = location.pathname === path;
             return (
-               <NavLink
+               <button
                   key={path}
-                  to={path}
+                  onClick={() => handleNav(path)}
                   style={{
                      display: 'flex',
                      alignItems: 'center',
@@ -31,7 +39,7 @@ function NavHelper() {
                      fontSize: '0.75rem',
                      fontWeight: isActive ? 700 : 500,
                      textDecoration: 'none',
-                     cursor: 'pointer',
+                     cursor: isActive ? 'default' : 'pointer',
                      background: isActive
                         ? '#C8102E'
                         : 'rgba(255,255,255,0.85)',
@@ -66,7 +74,7 @@ function NavHelper() {
                      ''
                   )}
                   {label}
-               </NavLink>
+               </button>
             );
          })}
       </div>
@@ -74,3 +82,4 @@ function NavHelper() {
 }
 
 export default NavHelper;
+
