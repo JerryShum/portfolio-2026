@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import Model from './models/Portfolio_REAL';
+import Model from './models/Real_portfolio';
 
 function Scene() {
    return (
