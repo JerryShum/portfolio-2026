@@ -1,3 +1,12 @@
+
+# TODO LIST
+- [ ] Adjust the content of every page
+- [ ] Projects --> convert to cards with images and a description
+- [ ] Blog --> no blogs right now, check back later!
+- [ ] About Me --> image, description, more detail 
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
