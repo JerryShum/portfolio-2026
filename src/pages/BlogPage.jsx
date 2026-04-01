@@ -26,11 +26,17 @@ const posts = [
 function BlogPage() {
    return (
       <div className="w-full h-full flex flex-col bg-brand-brown-dark shadow-brand">
-         {/* Dark red header stripe */}
-         <div className="px-10 py-6 shrink-0 flex items-center gap-3 bg-brand-gradient">
-            <h1 className="font-serif text-3xl font-bold text-brand-cream uppercase">
+         {/* Header */}
+         <div className="px-10 py-6 shrink-0 bg-brand-gradient">
+            <p className="text-xs font-mono font-bold tracking-widest uppercase text-brand-cream/60 mb-1">
+               Portfolio — 2026
+            </p>
+            <h1 className="font-serif text-3xl font-bold text-brand-cream">
                Blog
             </h1>
+            <p className="text-sm text-brand-cream/70 mt-1">
+               Thoughts, tutorials, and rants
+            </p>
          </div>
 
          {/* Posts */}

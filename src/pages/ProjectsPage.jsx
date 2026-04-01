@@ -1,87 +1,178 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+// ─────────────────────────────────────────────
+// FILL IN YOUR PROJECTS HERE
+// ─────────────────────────────────────────────
 
 const projects = [
-   {
-      id: 1,
-      emoji: '🏪',
-      tag: 'Three.js · R3F · GSAP',
-      title: '3D Portfolio Café',
-      description:
-         'An interactive Tim Hortons café scene in Three.js with baked lighting, custom routing, and GSAP transitions.',
-   },
-   {
-      id: 2,
-      emoji: '⚛️',
-      tag: 'React · TypeScript · Zustand',
-      title: 'Studio App',
-      description:
-         'A video-generation studio with a node-based graph UI, real-time API calls, and glassmorphism design.',
-   },
-   {
-      id: 3,
-      emoji: '🏀',
-      tag: 'Next.js · PostgreSQL',
-      title: 'NBA Forum',
-      description:
-         'A full-stack sports discussion board with threaded comments, real-time updates, and team theming.',
-   },
-   {
-      id: 4,
-      emoji: '🔐',
-      tag: 'Better-Auth · Node.js',
-      title: 'Auth System',
-      description:
-         'Production-grade authentication with Google & GitHub OAuth, protected routes, and session management.',
-   },
+  {
+    id: 1,
+    emoji: '🏪',
+    title: '3D Portfolio Café',
+    description:
+      'An interactive Tim Hortons café scene in Three.js with baked lighting, custom React Router integration, and GSAP page transitions.',
+    tags: ['Three.js', 'R3F', 'GSAP', 'React Router'],
+    github: 'https://github.com/YOUR_USERNAME/portfolio-2026',
+    status: 'live', // 'live' | 'wip' | 'archived'
+  },
+  {
+    id: 2,
+    emoji: '⚛️',
+    title: 'Studio App',
+    description:
+      'A video-generation studio with a node-based graph UI, real-time API orchestration, Zustand state management, and a glassmorphism design system.',
+    tags: ['React', 'TypeScript', 'Zustand', 'Node.js'],
+    github: 'https://github.com/YOUR_USERNAME/studio-app',
+    status: 'wip',
+  },
+  {
+    id: 3,
+    emoji: '🏀',
+    title: 'NBA Forum',
+    description:
+      'A full-stack sports discussion board with threaded comments, real-time updates, and team-based theming.',
+    tags: ['Next.js', 'PostgreSQL', 'REST API'],
+    github: 'https://github.com/YOUR_USERNAME/nba-forum',
+    status: 'live',
+  },
+  {
+    id: 4,
+    emoji: '🔐',
+    title: 'Auth System',
+    description:
+      'Production-grade authentication with Google & GitHub OAuth, session management, and protected route middleware.',
+    tags: ['Better-Auth', 'Node.js', 'Express'],
+    github: 'https://github.com/YOUR_USERNAME/auth-system',
+    status: 'live',
+  },
+  // ← Add more projects here
 ];
 
-function ProjectsPage() {
-   const [hovered, setHovered] = useState(null);
+// ─────────────────────────────────────────────
 
-   return (
-      <div className="w-full h-full flex flex-col bg-brand-brown-dark shadow-brand">
-         {/* Dark red header stripe */}
-         <div className="px-10 py-6 shrink-0 flex items-center gap-3 bg-brand-gradient">
-            <h1 className="font-serif text-3xl font-bold text-brand-cream uppercase">
-               Recent Projects
-            </h1>
-         </div>
+const STATUS_CONFIG = {
+  live:     { label: 'Live',     dot: 'bg-emerald-400'  },
+  wip:      { label: 'WIP',      dot: 'bg-amber-400'    },
+  archived: { label: 'Archived', dot: 'bg-brand-tan'    },
+};
 
-         {/* List */}
-         <div className="flex-1 overflow-y-auto scrollbar-brand">
-            {projects.map((project) => (
-               <div
-                  key={project.id}
-                  className={`px-10 py-6 cursor-pointer flex items-start gap-5 transition-colors duration-150 border-b border-brand-coffee ${hovered === project.id ? 'bg-brand-brown-light' : 'bg-brand-brown-dark'}`}
-                  onMouseEnter={() => setHovered(project.id)}
-                  onMouseLeave={() => setHovered(null)}
-               >
-                  <div className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-brand-brown-light border border-brand-brown-medium">
-                     {project.emoji}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                        <h3 className="font-serif text-base font-bold text-brand-cream">
-                           {project.title}
-                        </h3>
-                        <span className="text-xs font-mono text-brand-red bg-brand-brown-dark px-2.5 py-1 rounded-full font-semibold whitespace-nowrap border border-brand-red/25">
-                           {project.tag}
-                        </span>
-                     </div>
-                     <p className="text-sm text-brand-tan leading-relaxed">
-                        {project.description}
-                     </p>
-                  </div>
-                  <span
-                     className={`text-brand-red text-base mt-0.5 shrink-0 transition-opacity duration-150 ${hovered === project.id ? 'opacity-100' : 'opacity-0'}`}
-                  >
-                     →
-                  </span>
-               </div>
-            ))}
-         </div>
+function GitHubArrowIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+    >
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function ProjectCard({ project }) {
+  const status = STATUS_CONFIG[project.status] ?? STATUS_CONFIG.live;
+
+  return (
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        group flex rounded-xl bg-brand-brown-light border border-brand-brown-medium
+        p-5 flex-col gap-3
+        hover:border-brand-red/60 hover:bg-brand-brown-elevated
+        transition-all duration-200 cursor-pointer
+        hover:shadow-lg hover:shadow-black/30
+        no-underline
+      "
+    >
+      {/* Card header */}
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl leading-none">{project.emoji}</span>
+          <h3 className="font-serif text-base font-bold text-brand-cream group-hover:text-brand-red/90 transition-colors duration-200">
+            {project.title}
+          </h3>
+        </div>
+
+        <div className="flex items-center gap-3 shrink-0">
+          {/* Status badge */}
+          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-accent-brown">
+            <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
+            {status.label}
+          </span>
+
+          {/* Arrow */}
+          <span className="text-brand-brown-medium group-hover:text-brand-red transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <GitHubArrowIcon />
+          </span>
+        </div>
       </div>
-   );
+
+      {/* Description */}
+      <p className="text-sm text-brand-tan leading-relaxed">
+        {project.description}
+      </p>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs font-mono px-2 py-0.5 rounded bg-brand-brown-dark border border-brand-coffee text-brand-tan-dark"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </a>
+  );
+}
+
+function ProjectsPage() {
+  return (
+    <div className="w-full h-full flex flex-col bg-brand-brown-dark shadow-brand">
+
+      {/* Header */}
+      <div className="px-10 py-6 shrink-0 bg-brand-gradient">
+        <p className="text-xs font-mono font-bold tracking-widest uppercase text-brand-cream/60 mb-1">
+          Portfolio — 2026
+        </p>
+        <h1 className="font-serif text-3xl font-bold text-brand-cream">
+          Projects
+        </h1>
+        <p className="text-sm text-brand-cream/70 mt-1">
+          A selection of things I've built
+        </p>
+      </div>
+
+      {/* Cards grid */}
+      <div className="flex-1 overflow-y-auto px-8 py-7 scrollbar-brand">
+        <div className="flex flex-col gap-4">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        {/* Footer note */}
+        <p className="text-xs text-brand-accent-brown text-center mt-7 mb-2">
+          ☕ More projects on{' '}
+          <a
+            href="https://github.com/YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-red hover:underline"
+          >
+            GitHub
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default ProjectsPage;
