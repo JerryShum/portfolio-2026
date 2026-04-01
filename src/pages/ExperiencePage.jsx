@@ -32,121 +32,50 @@ const experiences = [
 
 function ExperiencePage() {
    return (
-      <div
-         className="w-full h-full flex flex-col"
-         style={{
-            background: '#261A10',
-            boxShadow: '4px 0 32px rgba(0,0,0,0.5)',
-         }}
-      >
+      <div className="w-full h-full flex flex-col bg-[#261A10] shadow-[4px_0_32px_rgba(0,0,0,0.5)]">
          {/* Dark red header stripe */}
-         <div
-            className="px-10 py-6 shrink-0 flex items-center gap-3"
-            style={{
-               background: 'linear-gradient(135deg, #932B30 0%, #B53028 100%)',
-            }}
-         >
+         <div className="px-10 py-6 shrink-0 flex items-center gap-3 bg-[linear-gradient(135deg,#932B30_0%,#B53028_100%)]">
             <span className="text-2xl">📋</span>
-            <h1
-               style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.25rem',
-                  fontWeight: 700,
-                  color: '#F5ECD7',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-               }}
-            >
+            <h1 className="font-serif text-[1.25rem] font-bold text-[#F5ECD7] tracking-[0.08em] uppercase">
                Experience
             </h1>
          </div>
 
          {/* Timeline */}
          <div
-            className="flex-1 overflow-y-auto px-10 py-8"
-            style={{
-               scrollbarWidth: 'thin',
-               scrollbarColor: '#4D3822 transparent',
-            }}
+            className="flex-1 overflow-y-auto px-10 py-8 [scrollbar-width:thin] [scrollbar-color:#4D3822_transparent]"
          >
             <div className="relative">
                {/* Vertical line */}
-               <div
-                  className="absolute left-[7px] top-2 bottom-2 w-[2px]"
-                  style={{ background: '#3F2D19' }}
-               />
+               <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-[#3F2D19]" />
 
                <div className="flex flex-col gap-10">
                   {experiences.map((exp, idx) => (
                      <div key={idx} className="relative pl-10">
                         {/* Dot */}
                         <div
-                           className="absolute left-0 top-[4px] w-[15px] h-[15px] rounded-full"
-                           style={{
-                              background: exp.active ? '#B53028' : '#4D3822',
-                              border: '2px solid #261A10',
-                              boxShadow: exp.active
-                                 ? '0 0 0 3px rgba(181,48,40,0.3)'
-                                 : 'none',
-                           }}
+                           className={`absolute left-0 top-[4px] w-[15px] h-[15px] rounded-full border-2 border-[#261A10] ${exp.active ? 'bg-[#B53028] shadow-[0_0_0_3px_rgba(181,48,40,0.3)]' : 'bg-[#4D3822]'}`}
                         />
 
                         <div className="flex flex-wrap items-baseline justify-between gap-x-4 mb-0.5">
-                           <h3
-                              style={{
-                                 fontFamily: 'var(--font-serif)',
-                                 fontSize: '1.05rem',
-                                 fontWeight: 700,
-                                 color: '#F5ECD7',
-                              }}
-                           >
+                           <h3 className="font-serif text-[1.05rem] font-bold text-[#F5ECD7]">
                               {exp.role}
                            </h3>
-                           <span
-                              style={{
-                                 fontSize: '0.72rem',
-                                 fontFamily: 'monospace',
-                                 color: '#6B4030',
-                                 whiteSpace: 'nowrap',
-                              }}
-                           >
+                           <span className="text-[0.72rem] font-mono text-[#6B4030] whitespace-nowrap">
                               {exp.period}
                            </span>
                         </div>
-                        <p
-                           style={{
-                              fontSize: '0.78rem',
-                              fontWeight: 600,
-                              color: '#B53028',
-                              marginBottom: '0.4rem',
-                           }}
-                        >
+                        <p className="text-[0.78rem] font-semibold text-[#B53028] mb-[0.4rem]">
                            {exp.company}
                         </p>
-                        <p
-                           style={{
-                              fontSize: '0.85rem',
-                              color: '#B8956A',
-                              lineHeight: 1.65,
-                              marginBottom: '0.65rem',
-                           }}
-                        >
+                        <p className="text-[0.85rem] text-[#B8956A] leading-[1.65] mb-[0.65rem]">
                            {exp.description}
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                            {exp.tags.map((tag) => (
                               <span
                                  key={tag}
-                                 style={{
-                                    fontSize: '0.72rem',
-                                    fontFamily: 'monospace',
-                                    padding: '3px 10px',
-                                    borderRadius: '6px',
-                                    background: '#352415',
-                                    border: '1px solid #4D3822',
-                                    color: '#C8956A',
-                                    fontWeight: 600,
-                                 }}
+                                 className="text-[0.72rem] font-mono px-[10px] py-[3px] rounded-[6px] bg-[#352415] border border-[#4D3822] text-[#C8956A] font-semibold"
                               >
                                  {tag}
                               </span>
@@ -155,6 +84,31 @@ function ExperiencePage() {
                      </div>
                   ))}
                </div>
+            </div>
+
+            {/* Download Resume Button */}
+            <div className="pt-8 pb-2 flex justify-center hover:scale-105 transition-all duration-300 hover:brightness-95">
+               <a
+                  href="/jerry_shum_engineer.pdf"
+                  download="jerry_shum_engineer.pdf"
+                  className="inline-flex items-center gap-[0.55rem] px-[1.6rem] py-[0.65rem] rounded-[10px] bg-[linear-gradient(135deg,#932B30_0%,#B53028_100%)] border border-[rgba(245,236,215,0.12)] text-[#F5ECD7] font-sans text-[0.82rem] font-semibold tracking-[0.06em] uppercase no-underline cursor-pointer shadow-[0_4px_18px_rgba(181,48,40,0.35)] transition-all duration-200 ease"
+               >
+                  {/* Download icon */}
+                  <svg
+                     width="15"
+                     height="15"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     strokeWidth="2.2"
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                  >
+                     <path d="M12 3v13M7 11l5 5 5-5" />
+                     <path d="M5 21h14" />
+                  </svg>
+                  Download Résumé
+               </a>
             </div>
          </div>
       </div>

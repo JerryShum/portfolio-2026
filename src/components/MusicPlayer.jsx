@@ -99,22 +99,14 @@ const MusicPlayer = () => {
 
    return (
       <div
-         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl"
-         style={{
-            zIndex: 50,
-            backgroundColor: 'rgba(32, 22, 12, 0.92)',
-            backdropFilter: 'blur(16px)',
-            borderColor: 'rgba(200,149,106,0.15)',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.6)',
-         }}
+         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl z-50 bg-[rgba(32,22,12,0.92)] backdrop-blur-[16px] border-[rgba(200,149,106,0.15)] shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
       >
          <div className="flex flex-col gap-2">
             {/* Main Player Row */}
             <div className="flex items-center gap-4">
                {/* Track Image */}
                <div
-                  className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
-                  style={{ background: '#352415', border: '1px solid #4D3822' }}
+                  className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden bg-[#352415] border border-[#4D3822]"
                >
                   {playlist[currentTrack]?.image &&
                   playlist[currentTrack].image !== '/' ? (
@@ -129,10 +121,9 @@ const MusicPlayer = () => {
                      />
                   ) : (
                      <svg
-                        className={`w-6 h-6 ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
+                        className={`w-6 h-6 text-[#6B4030] ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
-                        style={{ color: '#6B4030' }}
                      >
                         <path
                            fillRule="evenodd"
@@ -146,12 +137,11 @@ const MusicPlayer = () => {
                {/* Track Info */}
                <div className="min-w-0 flex-shrink-0">
                   <h3
-                     className="font-semibold text-sm truncate"
-                     style={{ color: '#F5ECD7' }}
+                     className="font-semibold text-sm truncate text-[#F5ECD7]"
                   >
                      {playlist[currentTrack]?.title || 'No Track'}
                   </h3>
-                  <p className="text-xs truncate" style={{ color: '#C8956A' }}>
+                  <p className="text-xs truncate text-[#C8956A]">
                      {playlist[currentTrack]?.artist || 'Unknown Artist'}
                   </p>
                </div>
@@ -160,10 +150,7 @@ const MusicPlayer = () => {
                <div className="flex items-center space-x-2">
                   <button
                      onClick={playPrevious}
-                     className="transition-colors"
-                     style={{ color: '#6B4030' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#B53028')}
-                     onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
+                     className="transition-colors text-[#6B4030] hover:text-[#B53028]"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
@@ -172,10 +159,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={togglePlayPause}
-                     className="transition-colors"
-                     style={{ color: '#B53028' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#D6453D')}
-                     onMouseLeave={(e) => (e.currentTarget.style.color = '#B53028')}
+                     className="transition-colors text-[#B53028] hover:text-[#D6453D]"
                   >
                      {isPlaying ? (
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -198,10 +182,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={playNext}
-                     className="transition-colors"
-                     style={{ color: '#6B4030' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#B53028')}
-                     onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
+                     className="transition-colors text-[#6B4030] hover:text-[#B53028]"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z" />
@@ -212,10 +193,9 @@ const MusicPlayer = () => {
                {/* Volume Control */}
                <div className="flex items-center space-x-2 flex-shrink-0">
                   <svg
-                     className="w-4 h-4"
+                     className="w-4 h-4 text-[#6B4030]"
                      fill="currentColor"
                      viewBox="0 0 20 20"
-                     style={{ color: '#6B4030' }}
                   >
                      <path
                         fillRule="evenodd"
@@ -233,8 +213,6 @@ const MusicPlayer = () => {
                      className="w-16 h-1 rounded-lg appearance-none cursor-pointer slider"
                      style={{
                         background: `linear-gradient(to right, #B53028 0%, #B53028 ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
-                        WebkitAppearance: 'none',
-                        appearance: 'none',
                      }}
                   />
                </div>
@@ -242,7 +220,7 @@ const MusicPlayer = () => {
 
             {/* Progress Bar */}
             <div className="flex items-center gap-2">
-               <span className="text-xs w-8 text-right" style={{ color: '#6B4030' }}>
+               <span className="text-xs w-8 text-right text-[#6B4030]">
                   {formatTime(currentTime)}
                </span>
                <input
@@ -255,11 +233,9 @@ const MusicPlayer = () => {
                   className="flex-1 h-1 rounded-lg appearance-none cursor-pointer progress-slider"
                   style={{
                      background: `linear-gradient(to right, #B53028 0%, #B53028 ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
-                     WebkitAppearance: 'none',
-                     appearance: 'none',
                   }}
                />
-               <span className="text-xs w-8" style={{ color: '#6B4030' }}>
+               <span className="text-xs w-8 text-[#6B4030]">
                   {formatTime(duration)}
                </span>
             </div>

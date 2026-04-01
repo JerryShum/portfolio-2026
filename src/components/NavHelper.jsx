@@ -20,57 +20,22 @@ function NavHelper() {
    };
 
    return (
-      <div
-         className="fixed bottom-6 right-6 z-20 flex flex-col items-end gap-1"
-         style={{ pointerEvents: 'auto' }}
-      >
+      <div className="fixed bottom-6 right-6 z-20 flex flex-col items-end gap-1 pointer-events-auto">
          {routes.map(({ path, label, emoji }) => {
             const isActive = location.pathname === path;
             return (
                <button
                   key={path}
                   onClick={() => handleNav(path)}
-                  style={{
-                     display: 'flex',
-                     alignItems: 'center',
-                     gap: '0.5rem',
-                     padding: '0.3rem 0.7rem',
-                     borderRadius: '999px',
-                     fontSize: '0.75rem',
-                     fontWeight: isActive ? 700 : 500,
-                     textDecoration: 'none',
-                     cursor: isActive ? 'default' : 'pointer',
-                     background: isActive
-                        ? '#B53028'
-                        : 'rgba(38, 26, 16, 0.9)',
-                     color: isActive ? '#F5ECD7' : '#C8956A',
-                     border: `1px solid ${isActive ? '#B53028' : 'rgba(200,149,106,0.2)'}`,
-                     boxShadow: isActive
-                        ? '0 2px 12px rgba(181,48,40,0.4)'
-                        : '0 1px 6px rgba(0,0,0,0.4)',
-                     transition: 'all 0.18s ease',
-                     backdropFilter: 'blur(10px)',
-                  }}
-                  onMouseEnter={(e) => {
-                     if (!isActive) {
-                        e.currentTarget.style.background = 'rgba(48, 32, 20, 0.95)';
-                        e.currentTarget.style.borderColor = '#B53028';
-                        e.currentTarget.style.color = '#F5ECD7';
+                  className={`
+                     flex items-center gap-2 px-3 py-1.5 rounded-full text-xs transition-all duration-150 ease-out backdrop-blur-md border border-solid
+                     ${isActive
+                        ? 'bg-[#B53028] text-[#F5ECD7] border-[#B53028] shadow-[0_2px_12px_rgba(181,48,40,0.4)] font-bold cursor-default'
+                        : 'bg-[rgba(38,26,16,0.9)] text-[#C8956A] border-[rgba(200,149,106,0.2)] shadow-[0_1px_6px_rgba(0,0,0,0.4)] font-medium cursor-pointer hover:bg-[rgba(48,32,20,0.95)] hover:border-[#B53028] hover:text-[#F5ECD7]'
                      }
-                  }}
-                  onMouseLeave={(e) => {
-                     if (!isActive) {
-                        e.currentTarget.style.background = 'rgba(38, 26, 16, 0.9)';
-                        e.currentTarget.style.borderColor = 'rgba(200,149,106,0.2)';
-                        e.currentTarget.style.color = '#C8956A';
-                     }
-                  }}
+                  `}
                >
-                  {emoji ? (
-                     <span style={{ fontSize: '0.7rem' }}>{emoji}</span>
-                  ) : (
-                     ''
-                  )}
+                  {emoji && <span className="text-[0.7rem]">{emoji}</span>}
                   {label}
                </button>
             );

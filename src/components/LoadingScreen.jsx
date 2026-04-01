@@ -72,106 +72,50 @@ const LoadingScreen = () => {
 
    return (
       <div
-         className={`fixed inset-0 z-1000 flex flex-col items-center justify-center transition-opacity duration-900 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
-         style={{ backgroundColor: '#261A10' }}
+         className={`fixed inset-0 z-[1000] flex flex-col items-center justify-center transition-opacity duration-900 bg-[#261A10] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
       >
          {/* Subtle top border accent */}
-         <div
-            className="absolute top-0 left-0 right-0 h-1"
-            style={{ background: '#B53028' }}
-         />
+         <div className="absolute top-0 left-0 right-0 h-1 bg-[#B53028]" />
 
          {/* Very subtle warm radial glow */}
-         <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-               background:
-                  'radial-gradient(ellipse at 50% 50%, rgba(181,48,40,0.08) 0%, transparent 70%)',
-            }}
-         />
+         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(181,48,40,0.08)_0%,transparent_70%)]" />
 
          <div className="relative flex flex-col items-center gap-7 z-10">
             {/* Cup */}
-            <div style={{ animation: 'cup-bob 2.8s ease-in-out infinite' }}>
+            <div className="animate-[cup-bob_2.8s_ease-in-out_infinite]">
                <CoffeeCupSVG />
             </div>
 
             {/* Name */}
             <div className="flex flex-col items-center gap-1.5">
-               <h1
-                  style={{
-                     fontFamily: 'var(--font-serif)',
-                     fontSize: '2.5rem',
-                     fontWeight: '700',
-                     letterSpacing: '0.12em',
-                     color: '#F5ECD7',
-                     textTransform: 'uppercase',
-                  }}
-               >
+               <h1 className="font-serif text-[2.5rem] font-bold tracking-[0.12em] text-[#F5ECD7] uppercase">
                   Jerry Shum
                </h1>
                <div className="flex items-center gap-3">
-                  <div
-                     className="h-px w-14"
-                     style={{ background: '#B53028', opacity: 0.5 }}
-                  />
-                  <span
-                     style={{
-                        fontSize: '0.65rem',
-                        letterSpacing: '0.3em',
-                        textTransform: 'uppercase',
-                        color: '#B53028',
-                        fontWeight: 600,
-                     }}
-                  >
+                  <div className="h-px w-14 bg-[#B53028]/50" />
+                  <span className="text-[0.65rem] tracking-[0.3em] uppercase text-[#B53028] font-semibold">
                      Portfolio
                   </span>
-                  <div
-                     className="h-px w-14"
-                     style={{ background: '#B53028', opacity: 0.5 }}
-                  />
+                  <div className="h-px w-14 bg-[#B53028]/50" />
                </div>
             </div>
 
             {/* Progress bar */}
             <div className="flex flex-col items-center gap-2.5 w-56">
-               <div
-                  className="w-full h-[3px] rounded-full overflow-hidden"
-                  style={{ background: 'rgba(181,48,40,0.22)' }}
-               >
+               <div className="w-full h-[3px] rounded-full overflow-hidden bg-[rgba(181,48,40,0.22)]">
                   <div
-                     className="h-full rounded-full transition-all duration-300 ease-out"
-                     style={{
-                        width: `${progress}%`,
-                        background: '#B53028',
-                     }}
+                     className="h-full rounded-full transition-all duration-300 ease-out bg-[#B53028]"
+                     style={{ width: `${progress}%` }}
                   />
                </div>
-               <span
-                  style={{
-                     fontSize: '0.7rem',
-                     fontFamily: 'monospace',
-                     letterSpacing: '0.15em',
-                     color: '#C8956A',
-                     textTransform: 'uppercase',
-                  }}
-               >
+               <span className="text-[0.7rem] font-mono tracking-[0.15em] text-[#C8956A] uppercase">
                   Brewing {Math.round(progress)}%
                </span>
             </div>
          </div>
 
          {/* Bottom */}
-         <p
-            className="absolute bottom-10 text-center"
-            style={{
-               fontSize: '0.7rem',
-               letterSpacing: '0.3em',
-               textTransform: 'uppercase',
-               color: 'rgba(245,236,215,0.28)',
-               fontWeight: 400,
-            }}
-         >
+         <p className="absolute bottom-10 text-center text-[0.7rem] tracking-[0.3em] uppercase text-[rgba(245,236,215,0.28)] font-normal">
             Always Fresh · Always Warm
          </p>
 
