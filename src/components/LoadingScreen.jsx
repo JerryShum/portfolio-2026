@@ -12,21 +12,21 @@ const CoffeeCupSVG = () => (
       {/* Steam */}
       <path
          d="M28 15 C28 15, 26 11, 28 8 C30 5, 28 2, 28 2"
-         stroke="#C8102E"
+         stroke="#B53028"
          strokeWidth="1.8"
          strokeLinecap="round"
          opacity="0.7"
       />
       <path
          d="M40 17 C40 17, 38 13, 40 10 C42 7, 40 4, 40 4"
-         stroke="#C8102E"
+         stroke="#B53028"
          strokeWidth="1.8"
          strokeLinecap="round"
          opacity="0.7"
       />
       <path
          d="M52 15 C52 15, 50 11, 52 8 C54 5, 52 2, 52 2"
-         stroke="#C8102E"
+         stroke="#B53028"
          strokeWidth="1.8"
          strokeLinecap="round"
          opacity="0.7"
@@ -34,9 +34,9 @@ const CoffeeCupSVG = () => (
       {/* Cup */}
       <path
          d="M16 22 L22 72 Q22 76 26 76 L54 76 Q58 76 58 72 L64 22 Z"
-         fill="#C8102E"
+         fill="#B53028"
       />
-      <path d="M18 22 L23 68 L27 68 L21 22 Z" fill="#E8203E" opacity="0.35" />
+      <path d="M18 22 L23 68 L27 68 L21 22 Z" fill="#D6453D" opacity="0.35" />
       {/* Rim */}
       <rect x="14" y="20" width="52" height="6" rx="3" fill="#F5ECD7" />
       {/* Handle */}
@@ -73,12 +73,12 @@ const LoadingScreen = () => {
    return (
       <div
          className={`fixed inset-0 z-1000 flex flex-col items-center justify-center transition-opacity duration-900 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
-         style={{ backgroundColor: '#1A0A00' }}
+         style={{ backgroundColor: '#261A10' }}
       >
          {/* Subtle top border accent */}
          <div
             className="absolute top-0 left-0 right-0 h-1"
-            style={{ background: '#C8102E' }}
+            style={{ background: '#B53028' }}
          />
 
          {/* Very subtle warm radial glow */}
@@ -86,7 +86,7 @@ const LoadingScreen = () => {
             className="absolute inset-0 pointer-events-none"
             style={{
                background:
-                  'radial-gradient(ellipse at 50% 50%, rgba(200,16,46,0.08) 0%, transparent 70%)',
+                  'radial-gradient(ellipse at 50% 50%, rgba(181,48,40,0.08) 0%, transparent 70%)',
             }}
          />
 
@@ -113,14 +113,14 @@ const LoadingScreen = () => {
                <div className="flex items-center gap-3">
                   <div
                      className="h-px w-14"
-                     style={{ background: '#C8102E', opacity: 0.5 }}
+                     style={{ background: '#B53028', opacity: 0.5 }}
                   />
                   <span
                      style={{
                         fontSize: '0.65rem',
                         letterSpacing: '0.3em',
                         textTransform: 'uppercase',
-                        color: '#C8102E',
+                        color: '#B53028',
                         fontWeight: 600,
                      }}
                   >
@@ -128,7 +128,7 @@ const LoadingScreen = () => {
                   </span>
                   <div
                      className="h-px w-14"
-                     style={{ background: '#C8102E', opacity: 0.5 }}
+                     style={{ background: '#B53028', opacity: 0.5 }}
                   />
                </div>
             </div>
@@ -137,13 +137,13 @@ const LoadingScreen = () => {
             <div className="flex flex-col items-center gap-2.5 w-56">
                <div
                   className="w-full h-[3px] rounded-full overflow-hidden"
-                  style={{ background: 'rgba(200,16,46,0.22)' }}
+                  style={{ background: 'rgba(181,48,40,0.22)' }}
                >
                   <div
                      className="h-full rounded-full transition-all duration-300 ease-out"
                      style={{
                         width: `${progress}%`,
-                        background: '#C8102E',
+                        background: '#B53028',
                      }}
                   />
                </div>

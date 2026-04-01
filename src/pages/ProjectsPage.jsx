@@ -41,12 +41,12 @@ function ProjectsPage() {
    return (
       <div
          className="w-full h-full flex flex-col"
-         style={{ background: '#1C1008', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
+         style={{ background: '#261A10', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
       >
          {/* Dark red header stripe */}
          <div
             className="px-10 py-6 shrink-0 flex items-center gap-3"
-            style={{ background: 'linear-gradient(135deg, #9B0D23 0%, #C8102E 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #932B30 0%, #B53028 100%)' }}
          >
             <span className="text-2xl">🍩</span>
             <h1
@@ -66,22 +66,22 @@ function ProjectsPage() {
          {/* List */}
          <div
             className="flex-1 overflow-y-auto"
-            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4A2010 transparent' }}
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4D3822 transparent' }}
          >
             {projects.map((project) => (
                <div
                   key={project.id}
                   className="px-10 py-6 cursor-pointer flex items-start gap-5 transition-colors duration-150"
                   style={{
-                     borderBottom: '1px solid #3A1A0A',
-                     background: hovered === project.id ? '#2E160A' : '#1C1008',
+                     borderBottom: '1px solid #3F2D19',
+                     background: hovered === project.id ? '#352415' : '#261A10',
                   }}
                   onMouseEnter={() => setHovered(project.id)}
                   onMouseLeave={() => setHovered(null)}
                >
                   <div
                      className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-                     style={{ background: '#2E160A', border: '1px solid #4A2010' }}
+                     style={{ background: '#352415', border: '1px solid #4D3822' }}
                   >
                      {project.emoji}
                   </div>
@@ -99,15 +99,15 @@ function ProjectsPage() {
                         </h3>
                         <span
                            style={{
-                              fontSize: '0.62rem',
+                              fontSize: '0.72rem',
                               fontFamily: 'monospace',
-                              color: '#C8102E',
-                              background: '#2E0A12',
-                              padding: '1px 8px',
+                              color: '#B53028',
+                              background: '#2E1A0A',
+                              padding: '3px 10px',
                               borderRadius: '999px',
                               fontWeight: 600,
                               whiteSpace: 'nowrap',
-                              border: '1px solid rgba(200,16,46,0.25)',
+                              border: '1px solid rgba(181,48,40,0.25)',
                            }}
                         >
                            {project.tag}
@@ -119,7 +119,7 @@ function ProjectsPage() {
                   </div>
                   <span
                      style={{
-                        color: '#C8102E',
+                        color: '#B53028',
                         fontSize: '1rem',
                         marginTop: '0.15rem',
                         flexShrink: 0,

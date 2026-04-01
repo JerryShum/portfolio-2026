@@ -10,25 +10,25 @@ const skills = [
 ];
 
 // Warm dark brown palette
-// bg:       #1C1008
+// bg:       #261A10
 // surface:  #261208
 // elevated: #321810
-// border:   #4A2010
+// border:   #4D3822
 // text:     #F5ECD7
 // muted:    #B8956A
-// accent:   #C8102E
-// tag bg:   #2E160A
+// accent:   #B53028
+// tag bg:   #352415
 
 function AboutPage() {
    return (
       <div
          className="w-full h-full flex flex-col"
-         style={{ background: '#1C1008', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
+         style={{ background: '#261A10', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
       >
          {/* Dark red header stripe */}
          <div
             className="px-10 py-6 shrink-0 flex items-center gap-3"
-            style={{ background: 'linear-gradient(135deg, #9B0D23 0%, #C8102E 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #932B30 0%, #B53028 100%)' }}
          >
             <span className="text-2xl">☕</span>
             <h1
@@ -48,13 +48,13 @@ function AboutPage() {
          {/* Content */}
          <div
             className="flex-1 overflow-y-auto px-10 py-8 space-y-7"
-            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4A2010 transparent' }}
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4D3822 transparent' }}
          >
             {/* Bio */}
             <div className="flex gap-5 items-start">
                <div
                   className="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-3xl"
-                  style={{ background: '#2E160A', border: '1px solid rgba(200,16,46,0.2)' }}
+                  style={{ background: '#352415', border: '1px solid rgba(181,48,40,0.2)' }}
                >
                   🧑‍💻
                </div>
@@ -77,7 +77,7 @@ function AboutPage() {
                </div>
             </div>
 
-            <div style={{ borderTop: '1px solid #3A1A0A' }} />
+            <div style={{ borderTop: '1px solid #3F2D19' }} />
 
             {/* Skills */}
             <div>
@@ -87,7 +87,7 @@ function AboutPage() {
                      fontWeight: 700,
                      letterSpacing: '0.2em',
                      textTransform: 'uppercase',
-                     color: '#C8102E',
+                     color: '#B53028',
                      marginBottom: '0.9rem',
                   }}
                >
@@ -103,8 +103,8 @@ function AboutPage() {
                            gap: '0.45rem',
                            padding: '0.5rem 0.75rem',
                            borderRadius: '0.5rem',
-                           background: '#2E160A',
-                           border: '1px solid #4A2010',
+                           background: '#352415',
+                           border: '1px solid #4D3822',
                            fontSize: '0.78rem',
                            color: '#E8D5B0',
                            fontWeight: 500,
@@ -117,7 +117,7 @@ function AboutPage() {
                </div>
             </div>
 
-            <div style={{ borderTop: '1px solid #3A1A0A' }} />
+            <div style={{ borderTop: '1px solid #3F2D19' }} />
 
             <p
                style={{

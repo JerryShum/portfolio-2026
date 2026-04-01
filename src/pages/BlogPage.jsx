@@ -27,12 +27,12 @@ function BlogPage() {
    return (
       <div
          className="w-full h-full flex flex-col"
-         style={{ background: '#1C1008', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
+         style={{ background: '#261A10', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
       >
          {/* Dark red header stripe */}
          <div
             className="px-10 py-6 shrink-0 flex items-center gap-3"
-            style={{ background: 'linear-gradient(135deg, #9B0D23 0%, #C8102E 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #932B30 0%, #B53028 100%)' }}
          >
             <span className="text-2xl">📰</span>
             <h1
@@ -52,20 +52,20 @@ function BlogPage() {
          {/* Posts */}
          <div
             className="flex-1 overflow-y-auto"
-            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4A2010 transparent' }}
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4D3822 transparent' }}
          >
             {posts.map((post) => (
                <div
                   key={post.id}
                   className="px-10 py-6 cursor-pointer transition-colors duration-150"
-                  style={{ borderBottom: '1px solid #3A1A0A', background: '#1C1008' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#2E160A')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = '#1C1008')}
+                  style={{ borderBottom: '1px solid #3F2D19', background: '#261A10' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = '#352415')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = '#261A10')}
                >
                   <div className="flex gap-4 items-start">
                      <div
                         className="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center text-xl"
-                        style={{ background: '#2E160A', border: '1px solid #4A2010' }}
+                        style={{ background: '#352415', border: '1px solid #4D3822' }}
                      >
                         {post.emoji}
                      </div>
@@ -76,7 +76,7 @@ function BlogPage() {
                               fontWeight: 700,
                               letterSpacing: '0.18em',
                               textTransform: 'uppercase',
-                              color: '#C8102E',
+                              color: '#B53028',
                            }}
                         >
                            {post.category}
@@ -121,7 +121,7 @@ function BlogPage() {
 
             {/* Coming soon */}
             <div className="px-10 py-5 flex justify-start">
-               <span style={{ fontSize: '0.75rem', color: '#C8102E', letterSpacing: '0.08em' }}>
+               <span style={{ fontSize: '0.75rem', color: '#B53028', letterSpacing: '0.08em' }}>
                   ☕ More posts brewing...
                </span>
             </div>

@@ -34,12 +34,17 @@ function ExperiencePage() {
    return (
       <div
          className="w-full h-full flex flex-col"
-         style={{ background: '#1C1008', boxShadow: '4px 0 32px rgba(0,0,0,0.5)' }}
+         style={{
+            background: '#261A10',
+            boxShadow: '4px 0 32px rgba(0,0,0,0.5)',
+         }}
       >
          {/* Dark red header stripe */}
          <div
             className="px-10 py-6 shrink-0 flex items-center gap-3"
-            style={{ background: 'linear-gradient(135deg, #9B0D23 0%, #C8102E 100%)' }}
+            style={{
+               background: 'linear-gradient(135deg, #932B30 0%, #B53028 100%)',
+            }}
          >
             <span className="text-2xl">📋</span>
             <h1
@@ -59,26 +64,29 @@ function ExperiencePage() {
          {/* Timeline */}
          <div
             className="flex-1 overflow-y-auto px-10 py-8"
-            style={{ scrollbarWidth: 'thin', scrollbarColor: '#4A2010 transparent' }}
+            style={{
+               scrollbarWidth: 'thin',
+               scrollbarColor: '#4D3822 transparent',
+            }}
          >
             <div className="relative">
                {/* Vertical line */}
                <div
                   className="absolute left-[7px] top-2 bottom-2 w-[2px]"
-                  style={{ background: '#3A1A0A' }}
+                  style={{ background: '#3F2D19' }}
                />
 
-               <div className="space-y-8">
+               <div className="flex flex-col gap-10">
                   {experiences.map((exp, idx) => (
                      <div key={idx} className="relative pl-10">
                         {/* Dot */}
                         <div
                            className="absolute left-0 top-[4px] w-[15px] h-[15px] rounded-full"
                            style={{
-                              background: exp.active ? '#C8102E' : '#4A2010',
-                              border: '2px solid #1C1008',
+                              background: exp.active ? '#B53028' : '#4D3822',
+                              border: '2px solid #261A10',
                               boxShadow: exp.active
-                                 ? '0 0 0 3px rgba(200,16,46,0.3)'
+                                 ? '0 0 0 3px rgba(181,48,40,0.3)'
                                  : 'none',
                            }}
                         />
@@ -109,7 +117,7 @@ function ExperiencePage() {
                            style={{
                               fontSize: '0.78rem',
                               fontWeight: 600,
-                              color: '#C8102E',
+                              color: '#B53028',
                               marginBottom: '0.4rem',
                            }}
                         >
@@ -130,12 +138,12 @@ function ExperiencePage() {
                               <span
                                  key={tag}
                                  style={{
-                                    fontSize: '0.65rem',
+                                    fontSize: '0.72rem',
                                     fontFamily: 'monospace',
-                                    padding: '2px 8px',
-                                    borderRadius: '4px',
-                                    background: '#2E160A',
-                                    border: '1px solid #4A2010',
+                                    padding: '3px 10px',
+                                    borderRadius: '6px',
+                                    background: '#352415',
+                                    border: '1px solid #4D3822',
                                     color: '#C8956A',
                                     fontWeight: 600,
                                  }}

@@ -41,26 +41,26 @@ function NavHelper() {
                      textDecoration: 'none',
                      cursor: isActive ? 'default' : 'pointer',
                      background: isActive
-                        ? '#C8102E'
-                        : 'rgba(30, 12, 4, 0.88)',
+                        ? '#B53028'
+                        : 'rgba(38, 26, 16, 0.9)',
                      color: isActive ? '#F5ECD7' : '#C8956A',
-                     border: `1px solid ${isActive ? '#C8102E' : 'rgba(200,149,106,0.2)'}`,
+                     border: `1px solid ${isActive ? '#B53028' : 'rgba(200,149,106,0.2)'}`,
                      boxShadow: isActive
-                        ? '0 2px 12px rgba(200,16,46,0.4)'
+                        ? '0 2px 12px rgba(181,48,40,0.4)'
                         : '0 1px 6px rgba(0,0,0,0.4)',
                      transition: 'all 0.18s ease',
                      backdropFilter: 'blur(10px)',
                   }}
                   onMouseEnter={(e) => {
                      if (!isActive) {
-                        e.currentTarget.style.background = 'rgba(40, 16, 6, 0.95)';
-                        e.currentTarget.style.borderColor = '#C8102E';
+                        e.currentTarget.style.background = 'rgba(48, 32, 20, 0.95)';
+                        e.currentTarget.style.borderColor = '#B53028';
                         e.currentTarget.style.color = '#F5ECD7';
                      }
                   }}
                   onMouseLeave={(e) => {
                      if (!isActive) {
-                        e.currentTarget.style.background = 'rgba(30, 12, 4, 0.88)';
+                        e.currentTarget.style.background = 'rgba(38, 26, 16, 0.9)';
                         e.currentTarget.style.borderColor = 'rgba(200,149,106,0.2)';
                         e.currentTarget.style.color = '#C8956A';
                      }

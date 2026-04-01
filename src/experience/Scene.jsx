@@ -8,7 +8,7 @@ function Scene() {
    return (
       <>
          <Suspense>
-            <fog attach="fog" args={['#201006', 8, 25]} />
+            <fog attach="fog" args={['#261A10', 8, 25]} />
             <ambientLight intensity={1.5} />
             <directionalLight
                position={[10, 10, 10]}

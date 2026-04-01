@@ -28,12 +28,6 @@ const MusicPlayer = () => {
          src: '/music/mp3/black_heaven.mp3',
          image: '/music/thumbnails/black_heaven.webp',
       },
-      {
-         title: 'Black Heaven',
-         artist: 'Studio EIM',
-         src: '/music/mp3/black_heaven.mp3',
-         image: '',
-      },
    ];
 
    const togglePlayPause = () => {
@@ -108,7 +102,7 @@ const MusicPlayer = () => {
          className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl"
          style={{
             zIndex: 50,
-            backgroundColor: 'rgba(20, 8, 2, 0.9)',
+            backgroundColor: 'rgba(32, 22, 12, 0.92)',
             backdropFilter: 'blur(16px)',
             borderColor: 'rgba(200,149,106,0.15)',
             boxShadow: '0 4px 24px rgba(0,0,0,0.6)',
@@ -120,7 +114,7 @@ const MusicPlayer = () => {
                {/* Track Image */}
                <div
                   className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
-                  style={{ background: '#2E160A', border: '1px solid #4A2010' }}
+                  style={{ background: '#352415', border: '1px solid #4D3822' }}
                >
                   {playlist[currentTrack]?.image &&
                   playlist[currentTrack].image !== '/' ? (
@@ -168,7 +162,7 @@ const MusicPlayer = () => {
                      onClick={playPrevious}
                      className="transition-colors"
                      style={{ color: '#6B4030' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C8102E')}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#B53028')}
                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -179,9 +173,9 @@ const MusicPlayer = () => {
                   <button
                      onClick={togglePlayPause}
                      className="transition-colors"
-                     style={{ color: '#C8102E' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#E8203E')}
-                     onMouseLeave={(e) => (e.currentTarget.style.color = '#C8102E')}
+                     style={{ color: '#B53028' }}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#D6453D')}
+                     onMouseLeave={(e) => (e.currentTarget.style.color = '#B53028')}
                   >
                      {isPlaying ? (
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -206,7 +200,7 @@ const MusicPlayer = () => {
                      onClick={playNext}
                      className="transition-colors"
                      style={{ color: '#6B4030' }}
-                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C8102E')}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#B53028')}
                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -238,7 +232,7 @@ const MusicPlayer = () => {
                      onChange={handleVolumeChange}
                      className="w-16 h-1 rounded-lg appearance-none cursor-pointer slider"
                      style={{
-                        background: `linear-gradient(to right, #C8102E 0%, #C8102E ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
+                        background: `linear-gradient(to right, #B53028 0%, #B53028 ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
                         WebkitAppearance: 'none',
                         appearance: 'none',
                      }}
@@ -260,7 +254,7 @@ const MusicPlayer = () => {
                   onChange={handleProgressChange}
                   className="flex-1 h-1 rounded-lg appearance-none cursor-pointer progress-slider"
                   style={{
-                     background: `linear-gradient(to right, #C8102E 0%, #C8102E ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
+                     background: `linear-gradient(to right, #B53028 0%, #B53028 ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
                      WebkitAppearance: 'none',
                      appearance: 'none',
                   }}
@@ -292,18 +286,18 @@ const MusicPlayer = () => {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #C8102E;
+            background: #B53028;
             cursor: pointer;
-            border: 2px solid #1A0A00;
+            border: 2px solid #261A10;
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .slider::-moz-range-thumb {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #C8102E;
+            background: #B53028;
             cursor: pointer;
-            border: 2px solid #1A0A00;
+            border: 2px solid #261A10;
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-webkit-slider-thumb {
@@ -312,18 +306,18 @@ const MusicPlayer = () => {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #C8102E;
+            background: #B53028;
             cursor: pointer;
-            border: 2px solid #1A0A00;
+            border: 2px solid #261A10;
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-moz-range-thumb {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #C8102E;
+            background: #B53028;
             cursor: pointer;
-            border: 2px solid #1A0A00;
+            border: 2px solid #261A10;
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
         `}</style>
