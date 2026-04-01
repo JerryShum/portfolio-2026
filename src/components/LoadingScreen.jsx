@@ -115,8 +115,8 @@ const LoadingScreen = () => {
          </div>
 
          {/* Bottom */}
-         <p className="absolute bottom-10 text-center text-[0.7rem] tracking-[0.3em] uppercase text-[rgba(245,236,215,0.28)] font-normal">
-            Always Fresh · Always Warm
+         <p className="absolute bottom-10 text-center text-[0.7rem] tracking-[0.3em] uppercase text-[rgba(245,236,215,0.67)] font-normal">
+            Desktop is recommended for the best experience
          </p>
 
          <style>{`

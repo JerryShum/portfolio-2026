@@ -24,8 +24,7 @@ function AboutPage() {
       <div className="w-full h-full flex flex-col bg-[#261A10] shadow-[4px_0_32px_rgba(0,0,0,0.5)]">
          {/* Dark red header stripe */}
          <div className="px-10 py-6 shrink-0 flex items-center gap-3 bg-[linear-gradient(135deg,#932B30_0%,#B53028_100%)]">
-            <span className="text-2xl">☕</span>
-            <h1 className="font-serif text-[1.25rem] font-bold text-[#F5ECD7] tracking-[0.08em] uppercase">
+            <h1 className="font-serif text-3xl font-bold text-[#F5ECD7] uppercase">
                About Me
             </h1>
          </div>
@@ -42,8 +41,9 @@ function AboutPage() {
                      Hey, I'm Jerry!
                   </h2>
                   <p className="text-[0.9rem] leading-[1.7] text-[#B8956A]">
-                     A developer who loves building interactive 3D web experiences — blending
-                     creative environments with solid engineering.
+                     A developer who loves building interactive 3D web
+                     experiences — blending creative environments with solid
+                     engineering.
                   </p>
                </div>
             </div>
