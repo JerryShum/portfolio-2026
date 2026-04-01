@@ -59,8 +59,8 @@ const LoadingScreen = () => {
 
    useEffect(() => {
       if (!active && progress === 100) {
-         const fadeOutTimer = setTimeout(() => setFadeOut(true), 0);
-         const hideTimer = setTimeout(() => setShown(false), 900);
+         const fadeOutTimer = setTimeout(() => setFadeOut(true), 200);
+         const hideTimer = setTimeout(() => setShown(false), 1000);
          return () => {
             clearTimeout(fadeOutTimer);
             clearTimeout(hideTimer);
