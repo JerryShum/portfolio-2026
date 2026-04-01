@@ -243,10 +243,13 @@ const Model = forwardRef((props, ref) => {
          />
          <mesh
             geometry={nodes.World.geometry}
-            material={materials['Material.001']}
-            position={[0.166, 0.304, 0.259]}
+            position={[0.166, 0.304, 0.59]}
+            // position OG =[0.166, 0.304, 0.259]
             scale={11.002}
-         />
+            receiveShadow
+         >
+            <meshStandardMaterial color="#725b4d" roughness={0.5} />
+         </mesh>
 
          <HoverableText
             onClickAction={() =>

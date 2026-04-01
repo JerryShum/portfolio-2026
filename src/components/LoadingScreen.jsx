@@ -15,21 +15,21 @@ const CoffeeCupSVG = () => (
          stroke="#C8102E"
          strokeWidth="1.8"
          strokeLinecap="round"
-         opacity="0.6"
+         opacity="0.7"
       />
       <path
          d="M40 17 C40 17, 38 13, 40 10 C42 7, 40 4, 40 4"
          stroke="#C8102E"
          strokeWidth="1.8"
          strokeLinecap="round"
-         opacity="0.6"
+         opacity="0.7"
       />
       <path
          d="M52 15 C52 15, 50 11, 52 8 C54 5, 52 2, 52 2"
          stroke="#C8102E"
          strokeWidth="1.8"
          strokeLinecap="round"
-         opacity="0.6"
+         opacity="0.7"
       />
       {/* Cup */}
       <path
@@ -38,11 +38,11 @@ const CoffeeCupSVG = () => (
       />
       <path d="M18 22 L23 68 L27 68 L21 22 Z" fill="#E8203E" opacity="0.35" />
       {/* Rim */}
-      <rect x="14" y="20" width="52" height="6" rx="3" fill="#E8E0D4" />
+      <rect x="14" y="20" width="52" height="6" rx="3" fill="#F5ECD7" />
       {/* Handle */}
       <path
          d="M62 36 Q73 36 73 50 Q73 64 62 64"
-         stroke="#E8E0D4"
+         stroke="#F5ECD7"
          strokeWidth="3.5"
          fill="none"
          strokeLinecap="round"
@@ -73,7 +73,7 @@ const LoadingScreen = () => {
    return (
       <div
          className={`fixed inset-0 z-1000 flex flex-col items-center justify-center transition-opacity duration-900 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
-         style={{ backgroundColor: '#FFFFFF' }}
+         style={{ backgroundColor: '#1A0A00' }}
       >
          {/* Subtle top border accent */}
          <div
@@ -86,7 +86,7 @@ const LoadingScreen = () => {
             className="absolute inset-0 pointer-events-none"
             style={{
                background:
-                  'radial-gradient(ellipse at 50% 50%, rgba(200,16,46,0.04) 0%, transparent 70%)',
+                  'radial-gradient(ellipse at 50% 50%, rgba(200,16,46,0.08) 0%, transparent 70%)',
             }}
          />
 
@@ -100,11 +100,11 @@ const LoadingScreen = () => {
             <div className="flex flex-col items-center gap-1.5">
                <h1
                   style={{
-                     fontFamily: 'Georgia, "Times New Roman", serif',
+                     fontFamily: 'var(--font-serif)',
                      fontSize: '2.5rem',
                      fontWeight: '700',
                      letterSpacing: '0.12em',
-                     color: '#1A0A00',
+                     color: '#F5ECD7',
                      textTransform: 'uppercase',
                   }}
                >
@@ -113,7 +113,7 @@ const LoadingScreen = () => {
                <div className="flex items-center gap-3">
                   <div
                      className="h-px w-14"
-                     style={{ background: '#C8102E', opacity: 0.4 }}
+                     style={{ background: '#C8102E', opacity: 0.5 }}
                   />
                   <span
                      style={{
@@ -128,7 +128,7 @@ const LoadingScreen = () => {
                   </span>
                   <div
                      className="h-px w-14"
-                     style={{ background: '#C8102E', opacity: 0.4 }}
+                     style={{ background: '#C8102E', opacity: 0.5 }}
                   />
                </div>
             </div>
@@ -137,7 +137,7 @@ const LoadingScreen = () => {
             <div className="flex flex-col items-center gap-2.5 w-56">
                <div
                   className="w-full h-[3px] rounded-full overflow-hidden"
-                  style={{ background: 'rgba(200,16,46,0.12)' }}
+                  style={{ background: 'rgba(200,16,46,0.22)' }}
                >
                   <div
                      className="h-full rounded-full transition-all duration-300 ease-out"
@@ -152,7 +152,7 @@ const LoadingScreen = () => {
                      fontSize: '0.7rem',
                      fontFamily: 'monospace',
                      letterSpacing: '0.15em',
-                     color: '#9B7B6A',
+                     color: '#C8956A',
                      textTransform: 'uppercase',
                   }}
                >
@@ -168,7 +168,7 @@ const LoadingScreen = () => {
                fontSize: '0.7rem',
                letterSpacing: '0.3em',
                textTransform: 'uppercase',
-               color: 'rgba(107,58,42,0.4)',
+               color: 'rgba(245,236,215,0.28)',
                fontWeight: 400,
             }}
          >

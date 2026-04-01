@@ -28,6 +28,12 @@ const MusicPlayer = () => {
          src: '/music/mp3/black_heaven.mp3',
          image: '/music/thumbnails/black_heaven.webp',
       },
+      {
+         title: 'Black Heaven',
+         artist: 'Studio EIM',
+         src: '/music/mp3/black_heaven.mp3',
+         image: '',
+      },
    ];
 
    const togglePlayPause = () => {
@@ -99,17 +105,23 @@ const MusicPlayer = () => {
 
    return (
       <div
-         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block backdrop-blur-sm pointer-events-auto"
+         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl"
          style={{
             zIndex: 50,
-            backgroundColor: 'rgba(17, 17, 17, 0.096)',
+            backgroundColor: 'rgba(20, 8, 2, 0.9)',
+            backdropFilter: 'blur(16px)',
+            borderColor: 'rgba(200,149,106,0.15)',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.6)',
          }}
       >
          <div className="flex flex-col gap-2">
             {/* Main Player Row */}
             <div className="flex items-center gap-4">
                {/* Track Image */}
-               <div className="w-12 h-12 bg-[#DBCEB4]/20 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+               <div
+                  className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+                  style={{ background: '#2E160A', border: '1px solid #4A2010' }}
+               >
                   {playlist[currentTrack]?.image &&
                   playlist[currentTrack].image !== '/' ? (
                      <img
@@ -123,9 +135,10 @@ const MusicPlayer = () => {
                      />
                   ) : (
                      <svg
-                        className={`w-6 h-6 text-[#9B7B6A] ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
+                        className={`w-6 h-6 ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
+                        style={{ color: '#6B4030' }}
                      >
                         <path
                            fillRule="evenodd"
@@ -138,10 +151,13 @@ const MusicPlayer = () => {
 
                {/* Track Info */}
                <div className="min-w-0 flex-shrink-0">
-                  <h3 className="text-[#3D1C0E] font-semibold text-sm truncate ">
+                  <h3
+                     className="font-semibold text-sm truncate"
+                     style={{ color: '#F5ECD7' }}
+                  >
                      {playlist[currentTrack]?.title || 'No Track'}
                   </h3>
-                  <p className="text-[#9B7B6A] text-xs truncate ">
+                  <p className="text-xs truncate" style={{ color: '#C8956A' }}>
                      {playlist[currentTrack]?.artist || 'Unknown Artist'}
                   </p>
                </div>
@@ -150,28 +166,25 @@ const MusicPlayer = () => {
                <div className="flex items-center space-x-2">
                   <button
                      onClick={playPrevious}
-                     className="text-[#9B7B6A] hover:text-[#C8102E] transition-colors"
+                     className="transition-colors"
+                     style={{ color: '#6B4030' }}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C8102E')}
+                     onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
                   >
-                     <svg
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                     >
+                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
                      </svg>
                   </button>
 
                   <button
                      onClick={togglePlayPause}
-                     className="text-[#C8102E] hover:text-[#E8203E] transition-colors"
+                     className="transition-colors"
+                     style={{ color: '#C8102E' }}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#E8203E')}
+                     onMouseLeave={(e) => (e.currentTarget.style.color = '#C8102E')}
                   >
                      {isPlaying ? (
-                        // Pause Icon
-                        <svg
-                           className="w-6 h-6"
-                           fill="currentColor"
-                           viewBox="0 0 20 20"
-                        >
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                            <path
                               fillRule="evenodd"
                               d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -179,12 +192,7 @@ const MusicPlayer = () => {
                            />
                         </svg>
                      ) : (
-                        // Play Icon
-                        <svg
-                           className="w-6 h-6"
-                           fill="currentColor"
-                           viewBox="0 0 20 20"
-                        >
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                            <path
                               fillRule="evenodd"
                               d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
@@ -196,13 +204,12 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={playNext}
-                     className="text-[#9B7B6A] hover:text-[#C8102E] transition-colors"
+                     className="transition-colors"
+                     style={{ color: '#6B4030' }}
+                     onMouseEnter={(e) => (e.currentTarget.style.color = '#C8102E')}
+                     onMouseLeave={(e) => (e.currentTarget.style.color = '#6B4030')}
                   >
-                     <svg
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                     >
+                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z" />
                      </svg>
                   </button>
@@ -211,9 +218,10 @@ const MusicPlayer = () => {
                {/* Volume Control */}
                <div className="flex items-center space-x-2 flex-shrink-0">
                   <svg
-                     className="w-4 h-4 text-[#9B7B6A]"
+                     className="w-4 h-4"
                      fill="currentColor"
                      viewBox="0 0 20 20"
+                     style={{ color: '#6B4030' }}
                   >
                      <path
                         fillRule="evenodd"
@@ -228,9 +236,9 @@ const MusicPlayer = () => {
                      step="0.01"
                      value={volume}
                      onChange={handleVolumeChange}
-                     className="w-16 h-1 bg-[#DBCEB4]/30 rounded-lg appearance-none cursor-pointer slider"
+                     className="w-16 h-1 rounded-lg appearance-none cursor-pointer slider"
                      style={{
-                        background: `linear-gradient(to right, #C8102E 0%, #C8102E ${volume * 100}%, rgba(200, 16, 46, 0.2) ${volume * 100}%, rgba(200, 16, 46, 0.2) 100%)`,
+                        background: `linear-gradient(to right, #C8102E 0%, #C8102E ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
                         WebkitAppearance: 'none',
                         appearance: 'none',
                      }}
@@ -239,8 +247,8 @@ const MusicPlayer = () => {
             </div>
 
             {/* Progress Bar */}
-            <div className="flex items-center gap-2 ">
-               <span className="text-[#9B7B6A] text-xs w-8 text-right">
+            <div className="flex items-center gap-2">
+               <span className="text-xs w-8 text-right" style={{ color: '#6B4030' }}>
                   {formatTime(currentTime)}
                </span>
                <input
@@ -250,14 +258,14 @@ const MusicPlayer = () => {
                   step="0.1"
                   value={currentTime}
                   onChange={handleProgressChange}
-                  className="flex-1 h-1 bg-[#DBCEB4]/30 rounded-lg appearance-none cursor-pointer progress-slider"
+                  className="flex-1 h-1 rounded-lg appearance-none cursor-pointer progress-slider"
                   style={{
-                     background: `linear-gradient(to right, #C8102E 0%, #C8102E ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(200, 16, 46, 0.2) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(200, 16, 46, 0.2) 100%)`,
+                     background: `linear-gradient(to right, #C8102E 0%, #C8102E ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
                      WebkitAppearance: 'none',
                      appearance: 'none',
                   }}
                />
-               <span className="text-[#9B7B6A] text-xs w-8">
+               <span className="text-xs w-8" style={{ color: '#6B4030' }}>
                   {formatTime(duration)}
                </span>
             </div>
@@ -286,8 +294,8 @@ const MusicPlayer = () => {
             border-radius: 50%;
             background: #C8102E;
             cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 2px solid #1A0A00;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .slider::-moz-range-thumb {
             width: 10px;
@@ -295,8 +303,8 @@ const MusicPlayer = () => {
             border-radius: 50%;
             background: #C8102E;
             cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 2px solid #1A0A00;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -306,8 +314,8 @@ const MusicPlayer = () => {
             border-radius: 50%;
             background: #C8102E;
             cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 2px solid #1A0A00;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-moz-range-thumb {
             width: 10px;
@@ -315,8 +323,8 @@ const MusicPlayer = () => {
             border-radius: 50%;
             background: #C8102E;
             cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 2px solid #1A0A00;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
         `}</style>
          </div>

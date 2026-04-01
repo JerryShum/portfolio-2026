@@ -42,29 +42,27 @@ function NavHelper() {
                      cursor: isActive ? 'default' : 'pointer',
                      background: isActive
                         ? '#C8102E'
-                        : 'rgba(255,255,255,0.85)',
-                     color: isActive ? '#FFFFFF' : '#3D1C0E',
-                     border: `1px solid ${isActive ? '#C8102E' : 'rgba(61,28,14,0.15)'}`,
+                        : 'rgba(30, 12, 4, 0.88)',
+                     color: isActive ? '#F5ECD7' : '#C8956A',
+                     border: `1px solid ${isActive ? '#C8102E' : 'rgba(200,149,106,0.2)'}`,
                      boxShadow: isActive
-                        ? '0 2px 10px rgba(200,16,46,0.35)'
-                        : '0 1px 4px rgba(0,0,0,0.1)',
+                        ? '0 2px 12px rgba(200,16,46,0.4)'
+                        : '0 1px 6px rgba(0,0,0,0.4)',
                      transition: 'all 0.18s ease',
-                     backdropFilter: 'blur(8px)',
+                     backdropFilter: 'blur(10px)',
                   }}
                   onMouseEnter={(e) => {
                      if (!isActive) {
-                        e.currentTarget.style.background = '#FFFFFF';
+                        e.currentTarget.style.background = 'rgba(40, 16, 6, 0.95)';
                         e.currentTarget.style.borderColor = '#C8102E';
-                        e.currentTarget.style.color = '#C8102E';
+                        e.currentTarget.style.color = '#F5ECD7';
                      }
                   }}
                   onMouseLeave={(e) => {
                      if (!isActive) {
-                        e.currentTarget.style.background =
-                           'rgba(255,255,255,0.85)';
-                        e.currentTarget.style.borderColor =
-                           'rgba(61,28,14,0.15)';
-                        e.currentTarget.style.color = '#3D1C0E';
+                        e.currentTarget.style.background = 'rgba(30, 12, 4, 0.88)';
+                        e.currentTarget.style.borderColor = 'rgba(200,149,106,0.2)';
+                        e.currentTarget.style.color = '#C8956A';
                      }
                   }}
                >
@@ -82,4 +80,3 @@ function NavHelper() {
 }
 
 export default NavHelper;
-

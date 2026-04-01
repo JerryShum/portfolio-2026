@@ -19,7 +19,7 @@ function Experience() {
    return (
       <>
          <Canvas shadows onPointerMissed={handleCanvasClick}>
-            <color attach="background" args={['#FFFAF0']} />
+            <color attach="background" args={['#201006']} />
             <PerspectiveCamera
                makeDefault
                position={[
