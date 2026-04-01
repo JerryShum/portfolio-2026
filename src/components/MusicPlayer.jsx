@@ -99,14 +99,14 @@ const MusicPlayer = () => {
 
    return (
       <div
-         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl z-50 bg-[rgba(32,22,12,0.92)] backdrop-blur-[16px] border-[rgba(200,149,106,0.15)] shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl z-50 bg-brand-brown-dark/90 backdrop-blur-xl border-brand-tan-dark/15 shadow-black/60"
       >
          <div className="flex flex-col gap-2">
             {/* Main Player Row */}
             <div className="flex items-center gap-4">
                {/* Track Image */}
                <div
-                  className="w-12 h-12 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden bg-[#352415] border border-[#4D3822]"
+                  className="w-12 h-12 rounded-lg shrink-0 flex items-center justify-center overflow-hidden bg-brand-brown-light border border-brand-brown-medium"
                >
                   {playlist[currentTrack]?.image &&
                   playlist[currentTrack].image !== '/' ? (
@@ -121,7 +121,7 @@ const MusicPlayer = () => {
                      />
                   ) : (
                      <svg
-                        className={`w-6 h-6 text-[#6B4030] ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
+                        className={`w-6 h-6 text-brand-accent-brown ${playlist[currentTrack]?.image && playlist[currentTrack].image !== '/' ? 'hidden' : 'flex'}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
                      >
@@ -135,13 +135,13 @@ const MusicPlayer = () => {
                </div>
 
                {/* Track Info */}
-               <div className="min-w-0 flex-shrink-0">
+               <div className="min-w-0 shrink-0">
                   <h3
-                     className="font-semibold text-sm truncate text-[#F5ECD7]"
+                     className="font-semibold text-sm truncate text-brand-cream"
                   >
                      {playlist[currentTrack]?.title || 'No Track'}
                   </h3>
-                  <p className="text-xs truncate text-[#C8956A]">
+                  <p className="text-xs truncate text-brand-tan-dark">
                      {playlist[currentTrack]?.artist || 'Unknown Artist'}
                   </p>
                </div>
@@ -150,7 +150,7 @@ const MusicPlayer = () => {
                <div className="flex items-center space-x-2">
                   <button
                      onClick={playPrevious}
-                     className="transition-colors text-[#6B4030] hover:text-[#B53028]"
+                     className="transition-colors text-brand-accent-brown hover:text-brand-red"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
@@ -159,7 +159,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={togglePlayPause}
-                     className="transition-colors text-[#B53028] hover:text-[#D6453D]"
+                     className="transition-colors text-brand-red hover:text-red-500"
                   >
                      {isPlaying ? (
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -182,7 +182,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={playNext}
-                     className="transition-colors text-[#6B4030] hover:text-[#B53028]"
+                     className="transition-colors text-brand-accent-brown hover:text-brand-red"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z" />
@@ -191,9 +191,9 @@ const MusicPlayer = () => {
                </div>
 
                {/* Volume Control */}
-               <div className="flex items-center space-x-2 flex-shrink-0">
+               <div className="flex items-center space-x-2 shrink-0">
                   <svg
-                     className="w-4 h-4 text-[#6B4030]"
+                     className="w-4 h-4 text-brand-accent-brown"
                      fill="currentColor"
                      viewBox="0 0 20 20"
                   >
@@ -212,7 +212,7 @@ const MusicPlayer = () => {
                      onChange={handleVolumeChange}
                      className="w-16 h-1 rounded-lg appearance-none cursor-pointer slider"
                      style={{
-                        background: `linear-gradient(to right, #B53028 0%, #B53028 ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
+                        background: `linear-gradient(to right, var(--color-brand-red) 0%, var(--color-brand-red) ${volume * 100}%, rgba(74,32,16,0.8) ${volume * 100}%, rgba(74,32,16,0.8) 100%)`,
                      }}
                   />
                </div>
@@ -220,7 +220,7 @@ const MusicPlayer = () => {
 
             {/* Progress Bar */}
             <div className="flex items-center gap-2">
-               <span className="text-xs w-8 text-right text-[#6B4030]">
+               <span className="text-xs w-8 text-right text-brand-accent-brown">
                   {formatTime(currentTime)}
                </span>
                <input
@@ -232,10 +232,10 @@ const MusicPlayer = () => {
                   onChange={handleProgressChange}
                   className="flex-1 h-1 rounded-lg appearance-none cursor-pointer progress-slider"
                   style={{
-                     background: `linear-gradient(to right, #B53028 0%, #B53028 ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
+                     background: `linear-gradient(to right, var(--color-brand-red) 0%, var(--color-brand-red) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) ${duration > 0 ? (currentTime / duration) * 100 : 0}%, rgba(74,32,16,0.8) 100%)`,
                   }}
                />
-               <span className="text-xs w-8 text-[#6B4030]">
+               <span className="text-xs text-brand-red tracking-wide">
                   {formatTime(duration)}
                </span>
             </div>
@@ -262,18 +262,18 @@ const MusicPlayer = () => {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #B53028;
+            background: var(--color-brand-red);
             cursor: pointer;
-            border: 2px solid #261A10;
+            border: 2px solid var(--color-brand-brown-dark);
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .slider::-moz-range-thumb {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #B53028;
+            background: var(--color-brand-red);
             cursor: pointer;
-            border: 2px solid #261A10;
+            border: 2px solid var(--color-brand-brown-dark);
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-webkit-slider-thumb {
@@ -282,18 +282,18 @@ const MusicPlayer = () => {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #B53028;
+            background: var(--color-brand-red);
             cursor: pointer;
-            border: 2px solid #261A10;
+            border: 2px solid var(--color-brand-brown-dark);
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
           .progress-slider::-moz-range-thumb {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #B53028;
+            background: var(--color-brand-red);
             cursor: pointer;
-            border: 2px solid #261A10;
+            border: 2px solid var(--color-brand-brown-dark);
             box-shadow: 0 1px 4px rgba(0,0,0,0.5);
           }
         `}</style>

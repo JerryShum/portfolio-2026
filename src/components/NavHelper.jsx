@@ -29,10 +29,10 @@ function NavHelper() {
                   onClick={() => handleNav(path)}
                   className={`
                      flex items-center gap-2 px-3 py-1.5 rounded-full text-xs transition-all duration-150 ease-out backdrop-blur-md border border-solid
-                     ${isActive
-                        ? 'bg-[#B53028] text-[#F5ECD7] border-[#B53028] shadow-[0_2px_12px_rgba(181,48,40,0.4)] font-bold cursor-default'
-                        : 'bg-[rgba(38,26,16,0.9)] text-[#C8956A] border-[rgba(200,149,106,0.2)] shadow-[0_1px_6px_rgba(0,0,0,0.4)] font-medium cursor-pointer hover:bg-[rgba(48,32,20,0.95)] hover:border-[#B53028] hover:text-[#F5ECD7]'
-                     }
+                      ${isActive
+                         ? 'bg-brand-red text-brand-cream border-brand-red shadow-brand-red font-bold cursor-default'
+                         : 'bg-brand-brown-dark/90 text-brand-tan-dark border-brand-tan-dark/20 shadow-md font-medium cursor-pointer hover:bg-brand-brown-medium/95 hover:border-brand-red hover:text-brand-cream'
+                      }
                   `}
                >
                   {emoji && <span className="text-[0.7rem]">{emoji}</span>}

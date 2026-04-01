@@ -1,5 +1,36 @@
 @import 'tailwindcss';
 
+@theme {
+  /* Brand Palette */
+  --color-brand-brown-dark: #261A10;
+  --color-brand-brown-surface: #261208;
+  --color-brand-brown-elevated: #321810;
+  --color-brand-brown-medium: #4D3822;
+  --color-brand-brown-light: #352415;
+  --color-brand-cream: #F5ECD7;
+  --color-brand-red: #B53028;
+  --color-brand-red-dark: #932B30;
+  --color-brand-tan: #B8956A;
+  --color-brand-tan-dark: #C8956A;
+  --color-brand-tan-light: #E8D5B0;
+  --color-brand-coffee: #3F2D19;
+  --color-brand-accent-brown: #6B4030;
+  
+  /* Additional shadow/gradient variables if needed */
+  --shadow-brand: 4px 0 32px rgba(0,0,0,0.5);
+  --shadow-brand-red: 0 4px 18px rgba(181,48,40,0.35);
+}
+
+@utility bg-brand-gradient {
+  background: linear-gradient(135deg, var(--color-brand-red-dark) 0%, var(--color-brand-red) 100%);
+}
+
+@utility scrollbar-brand {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-brown-medium) transparent;
+}
+
+
 :root {
    --font-sans: 'Nunito', system-ui, sans-serif;
    --font-serif: 'Libre Baskerville', Georgia, serif;
