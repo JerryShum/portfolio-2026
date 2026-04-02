@@ -150,20 +150,23 @@ function ProjectsPage() {
                   <ProjectCard key={project.id} project={project} />
                ))}
             </div>
+         </div>
 
-            {/* Footer note */}
-            <p className="text-xs text-brand-accent-brown text-center mt-7 mb-2">
+         {/* Fixed Footer note */}
+         <div className="px-8 py-5 border-t border-brand-coffee bg-brand-brown-dark shadow-[0_-4px_12px_rgba(0,0,0,0.2)]">
+            <p className="text-sm text-brand-accent-brown text-center">
                ☕ More projects on{' '}
                <a
-                  href="https://github.com/YOUR_USERNAME"
+                  href="https://github.com/jerryshum"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-red hover:underline"
+                  className="text-brand-red font-medium hover:underline transition-all duration-200"
                >
                   GitHub
                </a>
             </p>
          </div>
+
       </div>
    );
 }

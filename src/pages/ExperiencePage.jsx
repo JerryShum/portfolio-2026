@@ -58,32 +58,33 @@ function ExperiencePage() {
                   ))}
                </div>
             </div>
-
-            {/* Download Resume Button */}
-            <div className="pt-8 pb-2 flex justify-center hover:scale-105 transition-all duration-300 hover:brightness-95">
-               <a
-                  href="/jerry_shum_engineer.pdf"
-                  download="jerry_shum_engineer.pdf"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red transition-all duration-200 ease"
-               >
-                  {/* Download icon */}
-                  <svg
-                     width="15"
-                     height="15"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     strokeWidth="2.2"
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                  >
-                     <path d="M12 3v13M7 11l5 5 5-5" />
-                     <path d="M5 21h14" />
-                  </svg>
-                  Download Résumé
-               </a>
-            </div>
          </div>
+
+         {/* Fixed Footer with Download Resume Button */}
+         <div className="px-10 py-6 border-t border-brand-coffee bg-brand-brown-dark flex justify-center ">
+            <a
+               href="/jerry_shum_engineer.pdf"
+               download="jerry_shum_engineer.pdf"
+               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red transition-all duration-200 ease hover:scale-105 transition-all duration-300 hover:brightness-95"
+            >
+               {/* Download icon */}
+               <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+               >
+                  <path d="M12 3v13M7 11l5 5 5-5" />
+                  <path d="M5 21h14" />
+               </svg>
+               Download Résumé
+            </a>
+         </div>
+
       </div>
    );
 }
