@@ -15,7 +15,7 @@ function AchievementCard({ title, competition, period }) {
                <h3 className="text-sm font-bold text-brand-cream group-hover:text-brand-red transition-colors duration-200 leading-tight">
                   {title}
                </h3>
-               <p className="text-[11px] font-medium text-brand-tan/60 uppercase tracking-widest font-mono">
+               <p className="text-[11px] font-medium text-brand-tan/90 uppercase tracking-widest font-mono">
                   {competition}
                </p>
             </div>

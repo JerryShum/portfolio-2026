@@ -85,7 +85,7 @@ function ProjectCard({ project }) {
                </span>
             </div>
 
-            <p className="text-sm text-brand-tan/90 leading-relaxed line-clamp-3">
+            <p className="text-sm text-brand-tan leading-relaxed line-clamp-3">
                {project.description}
             </p>
 

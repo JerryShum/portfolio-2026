@@ -108,7 +108,7 @@ const LoadingScreen = () => {
                      style={{ width: `${progress}%` }}
                   />
                </div>
-               <span className="text-[0.7rem] font-mono tracking-[0.15em] text-brand-tan-dark uppercase">
+               <span className="text-[0.7rem] font-mono tracking-[0.15em] text-brand-tan uppercase">
                   Brewing {Math.round(progress)}%
                </span>
             </div>

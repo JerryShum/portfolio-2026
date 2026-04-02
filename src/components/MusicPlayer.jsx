@@ -141,7 +141,7 @@ const MusicPlayer = () => {
                   >
                      {playlist[currentTrack]?.title || 'No Track'}
                   </h3>
-                  <p className="text-xs truncate text-brand-tan-dark">
+                  <p className="text-xs truncate text-brand-tan/80">
                      {playlist[currentTrack]?.artist || 'Unknown Artist'}
                   </p>
                </div>
@@ -220,7 +220,7 @@ const MusicPlayer = () => {
 
             {/* Progress Bar */}
             <div className="flex items-center gap-2">
-               <span className="text-xs w-8 text-right text-brand-accent-brown">
+               <span className="text-xs w-8 text-right text-brand-tan/80">
                   {formatTime(currentTime)}
                </span>
                <input

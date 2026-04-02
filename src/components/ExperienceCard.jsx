@@ -55,9 +55,9 @@ function ExperienceCard({
    const normalizedType = type.toLowerCase().replace(' ', '-');
    const config = TYPE_CONFIG[normalizedType] ?? {
       label: type || 'Other',
-      text: 'text-brand-tan-dark',
-      bg: 'bg-brand-tan-dark/10',
-      border: 'border-brand-tan-dark/20',
+      text: 'text-brand-tan',
+      bg: 'bg-brand-tan/10',
+      border: 'border-brand-tan/20',
    };
 
    return (
@@ -111,7 +111,7 @@ function ExperienceCard({
                   <span
                      key={tag}
                      className="text-sm font-mono px-2 py-0.5 rounded
-                                bg-brand-brown-dark border border-brand-coffee text-brand-tan-dark font-medium
+                                 bg-brand-brown-dark border border-brand-coffee text-brand-tan font-medium
                                 transition-colors duration-200 hover:border-brand-accent-brown hover:text-brand-tan"
                   >
                      {tag}
