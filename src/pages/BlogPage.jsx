@@ -1,4 +1,8 @@
 import React from 'react';
+import PageHeader from '../components/PageHeader';
+
+const NAME = 'Blog';
+const TAGLINE = 'Documenting my software engineering journey';
 
 const posts = [
    {
@@ -26,18 +30,8 @@ const posts = [
 function BlogPage() {
    return (
       <div className="w-full h-full flex flex-col bg-brand-brown-dark shadow-brand">
-         {/* Header */}
-         <div className="px-10 py-6 shrink-0 bg-brand-gradient">
-            <p className="text-xs font-mono font-bold tracking-widest uppercase text-brand-cream/60 mb-1">
-               Portfolio — 2026
-            </p>
-            <h1 className="font-serif text-3xl font-bold text-brand-cream">
-               Blog
-            </h1>
-            <p className="text-sm text-brand-cream/70 mt-1">
-               Thoughts, tutorials, and rants
-            </p>
-         </div>
+         {/* ── Header ── */}
+         <PageHeader name={NAME} tagline={TAGLINE} />
 
          {/* Posts */}
          <div className="flex-1 overflow-y-auto scrollbar-brand">
