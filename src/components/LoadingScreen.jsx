@@ -72,10 +72,10 @@ const LoadingScreen = () => {
 
    return (
       <div
-         className={`fixed inset-0 z-[1000] flex flex-col items-center justify-center transition-opacity duration-900 bg-[#261A10] ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
+         className={`fixed inset-0 z-1000 flex flex-col items-center justify-center transition-opacity duration-900 bg-brand-brown-dark ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
       >
          {/* Subtle top border accent */}
-         <div className="absolute top-0 left-0 right-0 h-1 bg-[#B53028]" />
+         <div className="absolute top-0 left-0 right-0 h-1 bg-brand-red" />
 
          {/* Very subtle warm radial glow */}
          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(181,48,40,0.08)_0%,transparent_70%)]" />
@@ -88,15 +88,15 @@ const LoadingScreen = () => {
 
             {/* Name */}
             <div className="flex flex-col items-center gap-1.5">
-               <h1 className="font-serif text-[2.5rem] font-bold tracking-[0.12em] text-[#F5ECD7] uppercase">
+               <h1 className="font-serif text-[2.5rem] font-bold tracking-[0.12em] text-brand-cream uppercase">
                   Jerry Shum
                </h1>
                <div className="flex items-center gap-3">
-                  <div className="h-px w-14 bg-[#B53028]/50" />
-                  <span className="text-[0.65rem] tracking-[0.3em] uppercase text-[#B53028] font-semibold">
+                  <div className="h-px w-14 bg-brand-red/50" />
+                  <span className="text-[0.65rem] tracking-[0.3em] uppercase text-brand-red font-semibold">
                      Portfolio
                   </span>
-                  <div className="h-px w-14 bg-[#B53028]/50" />
+                  <div className="h-px w-14 bg-brand-red/50" />
                </div>
             </div>
 
@@ -104,11 +104,11 @@ const LoadingScreen = () => {
             <div className="flex flex-col items-center gap-2.5 w-56">
                <div className="w-full h-[3px] rounded-full overflow-hidden bg-[rgba(181,48,40,0.22)]">
                   <div
-                     className="h-full rounded-full transition-all duration-300 ease-out bg-[#B53028]"
+                     className="h-full rounded-full transition-all duration-300 ease-out bg-brand-red"
                      style={{ width: `${progress}%` }}
                   />
                </div>
-               <span className="text-[0.7rem] font-mono tracking-[0.15em] text-[#C8956A] uppercase">
+               <span className="text-[0.7rem] font-mono tracking-[0.15em] text-brand-tan-dark uppercase">
                   Brewing {Math.round(progress)}%
                </span>
             </div>
