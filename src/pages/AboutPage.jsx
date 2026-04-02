@@ -1,26 +1,28 @@
-import React from 'react';
 import PageHeader from '../components/PageHeader';
+import ProfileImage from '../components/ProfileImage';
 
 const NAME = 'Jerry Shum';
 const TAGLINE =
    'Full-Stack Developer & Currently a Software Engineering Student';
-const BIO = `I'm a developer with a passion for building interactive, visually rich web experiences. I love sitting at the intersection of engineering and design — whether that's crafting immersive 3D scenes in Three.js, architecting complex state systems, or obsessing over the perfect animation curve.
+const BIO = `I'm a Software Engineering student at OntarioTech University with a genuine love for building things. My journey started with making websites look good on the outside, but lately, I've been obsessed with learning how everything works under the hood.
 
-Currently studying at [Your School], and always looking for opportunities to build things that genuinely surprise people.`;
+Lately, I've been trying to push past the client side to and pushing myself to learn how to build robust, scalable back-ends using Hono, TypeScript, and Bun. I'm a big believer in getting 1% better at my craft every and strive to keep improving myself and my skills!
+
+I'm set to graduate in June 2026 and am currently looking for opportunities to get my hands dirty. I want to apply what I'm learning to build tools that are actually useful, while growing my skills alongside a great team.`;
 
 const LINKS = [
    {
       label: 'GitHub',
-      href: 'https://github.com/YOUR_USERNAME',
+      href: 'https://github.com/jerryshum',
       icon: GitHubIcon,
    },
    {
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/YOUR_USERNAME',
+      href: 'https://linkedin.com/in/jerry-shum',
       icon: LinkedInIcon,
    },
-   { label: 'Email', href: 'mailto:your@email.com', icon: EmailIcon },
-   // { label: 'Resume', href: '/jerry_shum_engineer.pdf', icon: ResumeIcon },
+   { label: 'Email', href: 'mailto:j.shum@outlook.com', icon: EmailIcon },
+   { label: 'Resume', href: '/jerry_shum_engineer.pdf', icon: ResumeIcon },
 ];
 
 const SKILLS = [
@@ -45,35 +47,10 @@ const SKILLS = [
    },
 ];
 
-const TIMELINE = [
-   {
-      year: '2025',
-      title: 'IT / Business Application Developer',
-      place: 'Celestica',
-      description:
-         'Leading full-stack development on an internal video-generation platform — node-graph UI, real-time API orchestration, and design systems.',
-   },
-   {
-      year: '2025',
-      title: 'Software Developer',
-      place: 'Arkhet AI Inc.',
-      description:
-         'Shipped interactive React apps with complex state management, GSAP animations, and performance optimisations.',
-   },
-   {
-      year: '2024',
-      title: 'Frontend Developer',
-      place: 'Magnify Access',
-      description:
-         'Built a Figma-based frontend design system for a WCAG-compliant web application.',
-   },
-   // Add more milestones here
-];
-
 const FUN_FACTS = [
-   '☕ Powered by Tim Hortons',
-   '🎮 Competitive Valorant player',
-   '🧩 Dabbles in Blender modelling',
+   'I love french bulldogs',
+   'My go-to coffee order used to be a Tim Hortons "double double" but I\'ve switched to a regular',
+   'Favourite Food: Pad Thai',
    // Add more here
 ];
 
@@ -115,6 +92,26 @@ function EmailIcon() {
    );
 }
 
+function ResumeIcon() {
+   return (
+      <svg
+         width="16"
+         height="16"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+      >
+         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+         <polyline points="14 2 14 8 20 8" />
+         <line x1="16" y1="13" x2="8" y2="13" />
+         <line x1="16" y1="17" x2="8" y2="17" />
+         <polyline points="10 9 9 9 8 9" />
+      </svg>
+   );
+}
 // ─────────────────────────────────────────────
 // COMPONENT
 // ─────────────────────────────────────────────
@@ -134,21 +131,24 @@ function AboutPage() {
          <PageHeader name={NAME} tagline={TAGLINE} />
 
          {/* ── Scrollable Body ── */}
-         <div className="flex-1 overflow-y-auto px-10 py-8 space-y-8 scrollbar-brand">
+         <div className="flex-1 overflow-y-auto px-10 py-8 flex flex-col gap-8 scrollbar-brand">
             {/* Bio */}
             <section>
                <SectionLabel>About</SectionLabel>
-               <p className="text-sm leading-relaxed text-brand-tan whitespace-pre-line">
+               <p className="text-md leading-relaxed text-brand-tan whitespace-pre-line">
                   {BIO}
                </p>
             </section>
 
+            {/* Profile Image Component */}
+            <ProfileImage src="/assets/portrait.webp" alt={NAME} />
+
             <div className="border-t border-brand-coffee" />
 
-            {/* Links */}
-            <section>
+            {/* Contact & Links */}
+            <section className="flex flex-col gap-2">
                <SectionLabel>Find Me</SectionLabel>
-               <div className="flex flex-wrap gap-3">
+               <div className="flex flex-wrap gap-3 items-center justify-center 5">
                   {LINKS.map(({ label, href, icon: Icon }) => (
                      <a
                         key={label}
@@ -168,70 +168,15 @@ function AboutPage() {
 
             <div className="border-t border-brand-coffee" />
 
-            {/* Skills */}
-            <section>
-               <SectionLabel>Skills</SectionLabel>
-               <div className="flex flex-col gap-5">
-                  {SKILLS.map(({ category, items }) => (
-                     <div key={category}>
-                        <p className="text-xs font-semibold text-brand-accent-brown uppercase tracking-wider mb-2">
-                           {category}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                           {items.map((skill) => (
-                              <span
-                                 key={skill}
-                                 className="text-xs font-mono px-2.5 py-1 rounded-md bg-brand-brown-light border border-brand-brown-medium text-brand-tan-light"
-                              >
-                                 {skill}
-                              </span>
-                           ))}
-                        </div>
-                     </div>
-                  ))}
-               </div>
-            </section>
-
-            <div className="border-t border-brand-coffee" />
-
-            {/* Timeline */}
-            <section>
-               <SectionLabel>Experience</SectionLabel>
-               <div className="relative flex flex-col gap-6">
-                  {/* Vertical rule */}
-                  <div className="absolute left-[3px] top-2 bottom-2 w-px bg-brand-coffee" />
-
-                  {TIMELINE.map(({ year, title, place, description }) => (
-                     <div key={`${year}-${title}`} className="pl-6 relative">
-                        {/* Dot */}
-                        <span className="absolute left-0 top-1.5 w-1.5 h-1.5 rounded-full bg-brand-red ring-2 ring-brand-brown-dark" />
-                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
-                           <span className="text-xs font-mono text-brand-accent-brown">
-                              {year}
-                           </span>
-                           <h3 className="text-sm font-semibold text-brand-cream">
-                              {title}
-                           </h3>
-                           <span className="text-xs text-brand-tan">
-                              @ {place}
-                           </span>
-                        </div>
-                        <p className="text-xs text-brand-tan leading-relaxed">
-                           {description}
-                        </p>
-                     </div>
-                  ))}
-               </div>
-            </section>
-
-            <div className="border-t border-brand-coffee" />
-
             {/* Fun facts */}
             <section>
-               <SectionLabel>Outside the Editor</SectionLabel>
-               <ul className="flex flex-col gap-1.5">
+               <SectionLabel>Fun Facts</SectionLabel>
+               <ul className="flex flex-col gap-2 list-disc ml-10! marker:text-brand-red">
                   {FUN_FACTS.map((fact) => (
-                     <li key={fact} className="text-sm text-brand-tan">
+                     <li
+                        key={fact}
+                        className="text-md text-brand-tan tracking-wide"
+                     >
                         {fact}
                      </li>
                   ))}
