@@ -6,7 +6,7 @@ function PageHeader({ name, tagline }) {
          <h1 className="font-serif text-3xl font-bold text-brand-cream uppercase">
             {name}
          </h1>
-         <p className="text-md text-brand-cream/70 capitalize">
+         <p className="text-md font-semibold text-brand-cream/80 capitalize">
             {tagline}
          </p>
       </div>
