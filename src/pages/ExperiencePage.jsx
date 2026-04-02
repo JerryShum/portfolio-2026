@@ -49,7 +49,7 @@ function ExperiencePage() {
          <div className="flex-1 overflow-y-auto px-10 py-8 scrollbar-brand">
             <div className="relative">
                {/* Vertical line */}
-               <div className="absolute left-2 top-2 bottom-2 w-[2px] bg-brand-coffee" />
+               <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-brand-coffee" />
 
                {/* Experience cards */}
                <div className="flex flex-col gap-10">
@@ -65,7 +65,7 @@ function ExperiencePage() {
             <a
                href="/jerry_shum_engineer.pdf"
                download="jerry_shum_engineer.pdf"
-               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red transition-all duration-200 ease hover:scale-105 transition-all duration-300 hover:brightness-95"
+               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red ease hover:scale-105 transition-all duration-300 hover:brightness-95"
             >
                {/* Download icon */}
                <svg
@@ -84,7 +84,6 @@ function ExperiencePage() {
                Download Résumé
             </a>
          </div>
-
       </div>
    );
 }
