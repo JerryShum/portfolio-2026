@@ -1,10 +1,11 @@
 import PageHeader from '../components/PageHeader';
 import ProfileImage from '../components/ProfileImage';
+import AchievementCard from '../components/AchievementCard';
 
 const NAME = 'Jerry Shum';
 const TAGLINE =
    'Full-Stack Developer & Currently a Software Engineering Student';
-const BIO = `I'm a Software Engineering student at OntarioTech University with a genuine love for building things. My journey started with making websites look good on the outside, but lately, I've been obsessed with learning how everything works under the hood.
+const BIO = `I'm a Software Engineering student at OntarioTech University and I like building things. My journey started with making websites look good on the outside, but lately, I've been obsessed with learning how everything works under the hood.
 
 Lately, I've been trying to push past the client side to and pushing myself to learn how to build robust, scalable back-ends using Hono, TypeScript, and Bun. I'm a big believer in getting 1% better at my craft every and strive to keep improving myself and my skills!
 
@@ -47,12 +48,46 @@ const SKILLS = [
    },
 ];
 
+const ACHIEVEMENTS = [
+   {
+      title: '1st Place (Consecutive)',
+      competition: 'Internal Engineering Competition - OTU',
+      period: '2023 - 2025',
+   },
+   {
+      title: '2nd Place',
+      competition: 'NASA Space Apps',
+      period: '2025',
+   },
+   {
+      title: '3rd Place (Programming)',
+      competition: 'Ontario Engineering Competition',
+      period: '2025',
+   },
+   {
+      title: 'Competitor (Consulting)',
+      competition: 'Ontario Engineering Competition',
+      period: '2024',
+   },
+   {
+      title: 'Hacker',
+      competition: 'HawkHacks',
+      period: '2024',
+   },
+   {
+      title: '3rd Place',
+      competition: 'NASA Space Apps',
+      period: '2023',
+   },
+
+];
+
 const FUN_FACTS = [
    'I love french bulldogs',
-   'My go-to coffee order used to be a Tim Hortons "double double" but I\'ve switched to a regular',
+   'My go-to coffee order is a Tim Hortons regular',
    'Favourite Food: Pad Thai',
-   // Add more here
 ];
+
 
 // ─────────────────────────────────────────────
 // ICON COMPONENTS
@@ -133,7 +168,7 @@ function AboutPage() {
          {/* ── Scrollable Body ── */}
          <div className="flex-1 overflow-y-auto px-10 py-8 flex flex-col gap-8 scrollbar-brand">
             {/* Bio */}
-            <section>
+            <section className='flex flex-col gap-2'>
                <SectionLabel>About</SectionLabel>
                <p className="text-md leading-relaxed text-brand-tan whitespace-pre-line">
                   {BIO}
@@ -142,6 +177,18 @@ function AboutPage() {
 
             {/* Profile Image Component */}
             <ProfileImage src="/assets/portrait.webp" alt={NAME} />
+
+            <div className="border-t border-brand-coffee" />
+
+            {/* Achievements Section */}
+            <section className="flex flex-col gap-2">
+               <SectionLabel>Achievements</SectionLabel>
+               <div className="flex flex-col">
+                  {ACHIEVEMENTS.map((achievement, idx) => (
+                     <AchievementCard key={idx} {...achievement} />
+                  ))}
+               </div>
+            </section>
 
             <div className="border-t border-brand-coffee" />
 
@@ -169,7 +216,7 @@ function AboutPage() {
             <div className="border-t border-brand-coffee" />
 
             {/* Fun facts */}
-            <section>
+            <section className="flex flex-col gap-2">
                <SectionLabel>Fun Facts</SectionLabel>
                <ul className="flex flex-col gap-2 list-disc ml-10! marker:text-brand-red">
                   {FUN_FACTS.map((fact) => (
@@ -188,3 +235,4 @@ function AboutPage() {
 }
 
 export default AboutPage;
+

@@ -8,7 +8,7 @@ import ExperienceCard from '../components/ExperienceCard';
 
 const experiences = [
    {
-      role: 'IT/Business Application Developer',
+      role: 'IT Application Developer',
       company: 'Celestica',
       period: 'May 2024 — August 2025',
       type: 'Internship',
