@@ -3,6 +3,9 @@ import React from 'react';
 const STATUS_CONFIG = {
    live: { label: 'Live', dot: 'bg-emerald-400' },
    wip: { label: 'WIP', dot: 'bg-amber-400' },
+   complete: { label: 'Complete', dot: 'bg-indigo-400' },
+   beta: { label: 'Beta', dot: 'bg-purple-400' },
+   experimental: { label: 'Experimental', dot: 'bg-pink-400' },
    archived: { label: 'Archived', dot: 'bg-brand-tan' },
 };
 
@@ -36,65 +39,62 @@ function ProjectCard({ project }) {
          target="_blank"
          rel="noopener noreferrer"
          className="
-            group flex flex-col rounded-2xl overflow-hidden
+            group flex flex-col sm:flex-row rounded-2xl
             bg-brand-brown-light border border-brand-brown-medium
             hover:border-brand-red/40 hover:bg-brand-brown-elevated
-            transition-all duration-300 cursor-pointer
+            transition-all duration-400 cursor-pointer
             hover:shadow-2xl hover:shadow-black/60 hover:-translate-y-1
-            no-underline h-full
+            no-underline overflow-hidden
          "
       >
-         {/* ── Image Hero ── */}
-         <div className="relative w-full aspect-[16/10] overflow-hidden border-b border-brand-brown-medium/50 bg-brand-brown-dark">
-            {project.image ? (
-               <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-               />
-            ) : (
-               <div className="w-full h-full flex items-center justify-center text-4xl opacity-20 grayscale">
-                  {project.emoji ?? '📁'}
-               </div>
-            )}
-            
-            {/* Elegant vignette overlay */}
-            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-            
-            {/* Top-right Status Badge */}
-            <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white shadow-lg">
-               <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-               <span className="text-[10px] font-mono font-bold tracking-widest uppercase">{status.label}</span>
-            </div>
+         {/* ── Left Visual Pillar ── */}
+         <div className="
+            flex items-center justify-center p-8 sm:w-32 bg-brand-brown-dark/50 
+            border-b sm:border-b-0 sm:border-r border-brand-brown-medium/30 
+            group-hover:bg-brand-red/5 transition-colors duration-400
+         ">
+            <span className="text-4xl sm:text-5xl group-hover:scale-125 transition-transform duration-500 ease-out drop-shadow-lg">
+               {project.emoji}
+            </span>
          </div>
 
-         {/* ── Content ── */}
-         <div className="flex flex-col p-5 flex-1 gap-3">
-            <div className="flex items-start justify-between gap-3">
-               <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-xl leading-none shrink-0">{project.emoji}</span>
-                  <h3 className="
-                     font-serif text-base font-bold text-brand-cream leading-snug truncate
-                     group-hover:text-brand-red/90 transition-colors duration-200
-                  ">
-                     {project.title}
-                  </h3>
+         {/* ── Right Content Section ── */}
+         <div className="flex flex-col p-6 flex-1 gap-3">
+
+            {/* Header: Title & Status */}
+            <div className="flex items-start justify-between gap-4">
+               <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                     <h3 className="
+                        font-serif text-xl font-bold text-brand-cream leading-tight
+                        group-hover:text-brand-red transition-colors duration-200
+                     ">
+                        {project.title}
+                     </h3>
+                     <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-brown-dark/80 border border-brand-coffee text-white shadow-sm">
+                        <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
+                        <span className="text-xs font-mono font-bold tracking-widest uppercase">{status.label}</span>
+                     </div>
+                  </div>
                </div>
-               <span className="text-brand-brown-medium group-hover:text-brand-red transition-all duration-300 group-hover:translate-x-0.5">
+               <span className="text-brand-brown-medium group-hover:text-brand-red transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
                   <GitHubArrowIcon />
                </span>
             </div>
 
-            <p className="text-sm text-brand-tan leading-relaxed line-clamp-3">
+            {/* Description */}
+            <p className="text-md text-brand-tan leading-relaxed max-w-2xl">
                {project.description}
             </p>
 
-            <div className="mt-auto pt-3 flex flex-wrap gap-2">
+            {/* Footer: Tags */}
+            <div className="mt-2 flex flex-wrap gap-2">
                {project.tags.map((tag) => (
                   <span
                      key={tag}
-                     className="text-[10px] font-mono font-medium tracking-wide px-2 py-0.5 rounded-md
-                                bg-brand-brown-dark/50 border border-brand-coffee text-brand-tan"
+                     className="text-xs font-mono font-medium tracking-wide px-2 py-0.5 rounded-md
+                                bg-brand-brown-dark border border-brand-coffee text-brand-tan/60 
+                                group-hover:text-brand-tan group-hover:border-brand-tan/20 transition-all duration-300"
                   >
                      {tag}
                   </span>

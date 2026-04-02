@@ -14,7 +14,6 @@ const projects = [
       id: 1,
       emoji: '🎬',
       title: 'StoryWeaver',
-      image: '/assets/projects/capstone-2025.png',
       description:
          'OntarioTech University Capstone Project featuring AI-powered video clip generation, seamless stitching with worker nodes, infinite canvas UI, and full-stack architecture with authentication and database integration.',
       tags: [
@@ -31,7 +30,6 @@ const projects = [
       id: 2,
       emoji: '🎨',
       title: 'Portfolio 2026',
-      image: '/assets/projects/portfolio-2026.png',
       description:
          'Interactive personal portfolio showcasing modern web design and development skills with dynamic routing and engaging user experiences.',
       tags: ['JavaScript', 'React', 'Modern UI', 'Responsive Design'],
@@ -42,29 +40,26 @@ const projects = [
       id: 3,
       emoji: '📝',
       title: 'Blabber',
-      image: '/assets/projects/blabber.png',
       description:
          'Minimalistic blog platform built with Next.js, featuring dynamic routing, markdown support, and server-side rendering for seamless content delivery.',
       tags: ['Next.js', 'TypeScript', 'Markdown', 'SSR', 'Content Management'],
       github: 'https://github.com/JerryShum/blabber',
-      status: 'live',
+      status: 'complete',
    },
    {
       id: 4,
       emoji: '🤖',
       title: 'Simple Coding Agent',
-      image: '/assets/projects/coding-agent.png',
       description:
          'An LLM agent project designed for learning and experimenting with code interaction and automated debugging. Uses the Google Gemini API to intelligently process and respond to coding tasks.',
       tags: ['Python', 'LLM', 'Google Gemini', 'AI Agent', 'Automation'],
       github: 'https://github.com/JerryShum/simple-coding-agent',
-      status: 'wip',
+      status: 'experimental',
    },
    {
       id: 5,
       emoji: '🌀',
       title: 'Maze Builder & Solver',
-      image: '/assets/projects/maze-builder-solver.png',
       description:
          'Python-based visualization application using Tkinter that generates and solves mazes with Recursive DFS and Breadth-First Search (BFS) algorithms, featuring interactive UI and algorithm demonstrations.',
       tags: [
@@ -75,18 +70,17 @@ const projects = [
          'Data Structures',
       ],
       github: 'https://github.com/JerryShum/maze-builder-solver',
-      status: 'live',
+      status: 'complete',
    },
    {
       id: 6,
       emoji: '🎰',
       title: 'Blackjack CLI',
-      image: '/assets/projects/blackjack-cli.png',
       description:
          "A simple yet effective CLI application that helps you play smarter Blackjack. Enter your cards and the dealer's up-card to receive intelligent strategy recommendations.",
       tags: ['Python', 'CLI', 'Game Logic', 'Strategy Algorithm'],
       github: 'https://github.com/JerryShum/blackjack-cli',
-      status: 'live',
+      status: 'complete',
    },
 
    // ← Add more projects here
@@ -100,9 +94,9 @@ function ProjectsPage() {
          {/* ── Header ── */}
          <PageHeader name={NAME} tagline={TAGLINE} />
 
-         {/* Cards grid */}
-         <div className="flex-1 overflow-y-auto px-8 py-8 scrollbar-brand">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-6">
+         {/* Cards list */}
+         <div className="flex-1 overflow-y-auto px-6 py-8 scrollbar-brand">
+            <div className="flex flex-col gap-5 pb-6 max-w-4xl mx-auto">
                {projects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                ))}
