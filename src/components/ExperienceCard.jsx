@@ -61,64 +61,66 @@ function ExperienceCard({
    };
 
    return (
-      <div className="relative pl-12 flex flex-col gap-2 group">
+      <div className="relative pl-12 group transition-all duration-300 hover:translate-x-1">
          {/* Timeline dot */}
          <div
-            className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-brand-brown-dark transition-all duration-300 group-hover:scale-125 ${
-               active
-                  ? 'bg-brand-red shadow-brand-red'
-                  : 'bg-brand-brown-medium'
-            }`}
+            className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-brand-brown-dark transition-all duration-400 z-10 group-hover:scale-150 ${active
+               ? 'bg-brand-red shadow-brand-red animate-pulse'
+               : 'bg-brand-brown-medium'
+               }`}
          />
 
-         {/* Header row: role + period */}
-         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-            <h3 className="font-serif text-lg font-bold text-brand-cream leading-snug group-hover:text-brand-red/90 transition-colors duration-300">
-               {role}
-            </h3>
-            <span className="text-sm font-mono text-brand-accent-brown whitespace-nowrap brightness-110">
-               {period}
-            </span>
-         </div>
+         {/* ── Content (Flat Approach) ── */}
+         <div className="flex flex-col gap-2 cursor-default">
+            {/* Header row: role + period */}
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+               <h3 className="font-serif text-xl font-bold text-brand-cream leading-tight group-hover:text-brand-red transition-colors duration-300">
+                  {role}
+               </h3>
+               <span className="text-xs font-mono text-brand-accent-brown whitespace-nowrap brightness-125 font-bold tracking-widest uppercase">
+                  {period}
+               </span>
+            </div>
 
-         {/* Company + type badge row */}
-         <div className="flex flex-wrap items-center gap-3">
-            <p className="text-lg font-bold text-brand-red/90 tracking-tight">
-               {company}
+            {/* Company + type badge row */}
+            <div className="flex items-center gap-3">
+               <p className="text-lg font-bold text-brand-red/90 tracking-tight">
+                  {company}
+               </p>
+
+               {/* Experience type badge */}
+               <span
+                  className={`
+                     inline-flex items-center text-[10px] font-mono font-bold tracking-widest uppercase 
+                     px-2 py-0.5 rounded-md border transition-all duration-300
+                     ${config.text} ${config.bg} ${config.border}
+                  `}
+               >
+                  {config.label}
+               </span>
+            </div>
+
+            {/* Description */}
+            <p className="text-md text-brand-tan leading-relaxed max-w-2xl">
+               {description}
             </p>
 
-            {/* Experience type badge */}
-            <span
-               className={`
-                  inline-flex items-center text-[10px] font-mono font-bold tracking-widest uppercase 
-                  px-2 py-0.5 rounded-md border transition-colors duration-300
-                  ${config.text} ${config.bg} ${config.border}
-               `}
-            >
-               {config.label}
-            </span>
+            {/* Tech tags */}
+            {tags.length > 0 && (
+               <div className="flex flex-wrap gap-2 mt-1">
+                  {tags.map((tag) => (
+                     <span
+                        key={tag}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded-md
+                                    bg-brand-brown-dark border border-brand-coffee text-brand-tan/70 
+                                    group-hover:text-brand-tan group-hover:border-brand-tan/30 transition-all duration-300"
+                     >
+                        {tag}
+                     </span>
+                  ))}
+               </div>
+            )}
          </div>
-
-         {/* Description */}
-         <p className="text-sm text-brand-tan leading-relaxed max-w-2xl">
-            {description}
-         </p>
-
-         {/* Tech tags */}
-         {tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-1">
-               {tags.map((tag) => (
-                  <span
-                     key={tag}
-                     className="text-sm font-mono px-2 py-0.5 rounded
-                                 bg-brand-brown-dark border border-brand-coffee text-brand-tan font-medium
-                                transition-colors duration-200 hover:border-brand-accent-brown hover:text-brand-tan"
-                  >
-                     {tag}
-                  </span>
-               ))}
-            </div>
-         )}
       </div>
    );
 }

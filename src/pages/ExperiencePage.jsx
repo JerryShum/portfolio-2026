@@ -13,8 +13,8 @@ const experiences = [
       period: 'May 2024 — August 2025',
       type: 'Internship',
       description:
-         'Leading full-stack development on a video generation platform — node-graph UI, real-time API orchestration, and design systems.',
-      tags: ['JavaScript', 'RDBMS', 'REST API', 'ServiceNow'],
+         'Automated business processes by developing internal applications and custom JavaScript solutions, while engineering REST API integrations and comprehensive unit test suites within an Agile framework.',
+      tags: ['JavaScript', 'REST API', 'Unit Testing', 'Agile', 'Postman'],
       active: true,
    },
    {
@@ -23,18 +23,18 @@ const experiences = [
       period: 'Feb 2025 — Apr 2025',
       type: 'Part-Time',
       description:
-         'Shipped interactive React apps with complex state management, GSAP animations, and performance optimizations.',
-      tags: ['React', 'GSAP', 'Zustand', 'CSS'],
+         'Architected responsive interfaces using React and Shadcn UI, engineered type-safe REST APIs with Hono, and integrated AI-driven features into core application workflows.',
+      tags: ['React', 'TypeScript', 'Hono', 'TailwindCSS', 'LLM'],
       active: false,
    },
    {
       role: 'Frontend Developer',
       company: 'Magnify Access',
       period: 'Jan 2024 — May 2024',
-      type: 'co-op',
+      type: 'Internship',
       description:
-         'Utilized Figma to create a frontend design system for a web application, ensuring WCAG and accessibility compliance.',
-      tags: ['Figma', 'WCAG', 'Accessibility'],
+         'Engineered accessible, user-centric interfaces compliant with WCAG 2.1 standards and executed SEO best practices.',
+      tags: ['WCAG', 'Accessibility', 'SEO', 'Lighthouse'],
       active: false,
    },
 ];
