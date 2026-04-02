@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import ProjectCard from '../components/ProjectCard';
 
 const NAME = 'Projects';
 const TAGLINE = 'Projects for both learning & fun';
@@ -11,131 +12,87 @@ const TAGLINE = 'Projects for both learning & fun';
 const projects = [
    {
       id: 1,
-      emoji: '🏪',
-      title: '3D Portfolio Café',
+      emoji: '🎬',
+      title: 'StoryWeaver',
+      image: '/assets/projects/capstone-2025.png',
       description:
-         'An interactive Tim Hortons café scene in Three.js with baked lighting, custom React Router integration, and GSAP page transitions.',
-      tags: ['Three.js', 'R3F', 'GSAP', 'React Router'],
-      github: 'https://github.com/YOUR_USERNAME/portfolio-2026',
-      status: 'live', // 'live' | 'wip' | 'archived'
-   },
-   {
-      id: 2,
-      emoji: '⚛️',
-      title: 'Studio App',
-      description:
-         'A video-generation studio with a node-based graph UI, real-time API orchestration, Zustand state management, and a glassmorphism design system.',
-      tags: ['React', 'TypeScript', 'Zustand', 'Node.js'],
-      github: 'https://github.com/YOUR_USERNAME/studio-app',
+         'OntarioTech University Capstone Project featuring AI-powered video clip generation, seamless stitching with worker nodes, infinite canvas UI, and full-stack architecture with authentication and database integration.',
+      tags: [
+         'TypeScript',
+         'Full-Stack',
+         'AI Integration',
+         'Video Processing',
+         'System Design',
+      ],
+      github: 'https://github.com/JerryShum/capstone-2025',
       status: 'wip',
    },
    {
-      id: 3,
-      emoji: '🏀',
-      title: 'NBA Forum',
+      id: 2,
+      emoji: '🎨',
+      title: 'Portfolio 2026',
+      image: '/assets/projects/portfolio-2026.png',
       description:
-         'A full-stack sports discussion board with threaded comments, real-time updates, and team-based theming.',
-      tags: ['Next.js', 'PostgreSQL', 'REST API'],
-      github: 'https://github.com/YOUR_USERNAME/nba-forum',
+         'Interactive personal portfolio showcasing modern web design and development skills with dynamic routing and engaging user experiences.',
+      tags: ['JavaScript', 'React', 'Modern UI', 'Responsive Design'],
+      github: 'https://github.com/JerryShum/portfolio-2026',
+      status: 'live',
+   },
+   {
+      id: 3,
+      emoji: '📝',
+      title: 'Blabber',
+      image: '/assets/projects/blabber.png',
+      description:
+         'Minimalistic blog platform built with Next.js, featuring dynamic routing, markdown support, and server-side rendering for seamless content delivery.',
+      tags: ['Next.js', 'TypeScript', 'Markdown', 'SSR', 'Content Management'],
+      github: 'https://github.com/JerryShum/blabber',
       status: 'live',
    },
    {
       id: 4,
-      emoji: '🔐',
-      title: 'Auth System',
+      emoji: '🤖',
+      title: 'Simple Coding Agent',
+      image: '/assets/projects/coding-agent.png',
       description:
-         'Production-grade authentication with Google & GitHub OAuth, session management, and protected route middleware.',
-      tags: ['Better-Auth', 'Node.js', 'Express'],
-      github: 'https://github.com/YOUR_USERNAME/auth-system',
+         'An LLM agent project designed for learning and experimenting with code interaction and automated debugging. Uses the Google Gemini API to intelligently process and respond to coding tasks.',
+      tags: ['Python', 'LLM', 'Google Gemini', 'AI Agent', 'Automation'],
+      github: 'https://github.com/JerryShum/simple-coding-agent',
+      status: 'wip',
+   },
+   {
+      id: 5,
+      emoji: '🌀',
+      title: 'Maze Builder & Solver',
+      image: '/assets/projects/maze-builder-solver.png',
+      description:
+         'Python-based visualization application using Tkinter that generates and solves mazes with Recursive DFS and Breadth-First Search (BFS) algorithms, featuring interactive UI and algorithm demonstrations.',
+      tags: [
+         'Python',
+         'Tkinter',
+         'Algorithms',
+         'Visualization',
+         'Data Structures',
+      ],
+      github: 'https://github.com/JerryShum/maze-builder-solver',
       status: 'live',
    },
+   {
+      id: 6,
+      emoji: '🎰',
+      title: 'Blackjack CLI',
+      image: '/assets/projects/blackjack-cli.png',
+      description:
+         "A simple yet effective CLI application that helps you play smarter Blackjack. Enter your cards and the dealer's up-card to receive intelligent strategy recommendations.",
+      tags: ['Python', 'CLI', 'Game Logic', 'Strategy Algorithm'],
+      github: 'https://github.com/JerryShum/blackjack-cli',
+      status: 'live',
+   },
+
    // ← Add more projects here
 ];
 
 // ─────────────────────────────────────────────
-
-const STATUS_CONFIG = {
-   live: { label: 'Live', dot: 'bg-emerald-400' },
-   wip: { label: 'WIP', dot: 'bg-amber-400' },
-   archived: { label: 'Archived', dot: 'bg-brand-tan' },
-};
-
-function GitHubArrowIcon() {
-   return (
-      <svg
-         width="16"
-         height="16"
-         fill="none"
-         stroke="currentColor"
-         strokeWidth="2"
-         strokeLinecap="round"
-         strokeLinejoin="round"
-         viewBox="0 0 24 24"
-      >
-         <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-   );
-}
-
-function ProjectCard({ project }) {
-   const status = STATUS_CONFIG[project.status] ?? STATUS_CONFIG.live;
-
-   return (
-      <a
-         href={project.github}
-         target="_blank"
-         rel="noopener noreferrer"
-         className="
-        group flex rounded-xl bg-brand-brown-light border border-brand-brown-medium
-        p-5 flex-col gap-3
-        hover:border-brand-red/60 hover:bg-brand-brown-elevated
-        transition-all duration-200 cursor-pointer
-        hover:shadow-lg hover:shadow-black/30
-        no-underline
-      "
-      >
-         {/* Card header */}
-         <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3">
-               <span className="text-2xl leading-none">{project.emoji}</span>
-               <h3 className="font-serif text-base font-bold text-brand-cream group-hover:text-brand-red/90 transition-colors duration-200">
-                  {project.title}
-               </h3>
-            </div>
-
-            <div className="flex items-center gap-3 shrink-0">
-               {/* Status badge */}
-               <span className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-accent-brown">
-                  <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-                  {status.label}
-               </span>
-
-               {/* Arrow */}
-               <span className="text-brand-brown-medium group-hover:text-brand-red transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <GitHubArrowIcon />
-               </span>
-            </div>
-         </div>
-
-         {/* Description */}
-         <p className="text-sm text-brand-tan leading-relaxed">
-            {project.description}
-         </p>
-
-         {/* Tags */}
-         <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-               <span
-                  key={tag}
-                  className="text-xs font-mono px-2 py-0.5 rounded bg-brand-brown-dark border border-brand-coffee text-brand-tan-dark"
-               >
-                  {tag}
-               </span>
-            ))}
-         </div>
-      </a>
-   );
-}
 
 function ProjectsPage() {
    return (
@@ -144,8 +101,8 @@ function ProjectsPage() {
          <PageHeader name={NAME} tagline={TAGLINE} />
 
          {/* Cards grid */}
-         <div className="flex-1 overflow-y-auto px-8 py-7 scrollbar-brand">
-            <div className="flex flex-col gap-4">
+         <div className="flex-1 overflow-y-auto px-8 py-8 scrollbar-brand">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-6">
                {projects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                ))}
@@ -154,8 +111,8 @@ function ProjectsPage() {
 
          {/* Fixed Footer note */}
          <div className="px-8 py-5 border-t border-brand-coffee bg-brand-brown-dark shadow-[0_-4px_12px_rgba(0,0,0,0.2)]">
-            <p className="text-sm text-brand-accent-brown text-center">
-               ☕ More projects on{' '}
+            <p className="text-md text-brand-cream text-center">
+               More projects on{' '}
                <a
                   href="https://github.com/jerryshum"
                   target="_blank"
@@ -166,7 +123,6 @@ function ProjectsPage() {
                </a>
             </p>
          </div>
-
       </div>
    );
 }
