@@ -1,76 +1,118 @@
 import React from 'react';
 
-// Maps experience type to a display label and colour variant
+// Maps experience type to a display label and color variants
 const TYPE_CONFIG = {
-   'full-time': { label: 'Full-Time', color: '#B53028', bg: 'rgba(181,48,40,0.12)', border: 'rgba(181,48,40,0.3)' },
-   'internship': { label: 'Internship', color: '#D4943A', bg: 'rgba(212,148,58,0.12)', border: 'rgba(212,148,58,0.3)' },
-   'co-op': { label: 'Co-op', color: '#5B9BD5', bg: 'rgba(91,155,213,0.12)', border: 'rgba(91,155,213,0.3)' },
-   'part-time': { label: 'Part-Time', color: '#7BAF6E', bg: 'rgba(123,175,110,0.12)', border: 'rgba(123,175,110,0.3)' },
-   'contract': { label: 'Contract', color: '#A98BD5', bg: 'rgba(169,139,213,0.12)', border: 'rgba(169,139,213,0.3)' },
-   'freelance': { label: 'Freelance', color: '#C4A46B', bg: 'rgba(196,164,107,0.12)', border: 'rgba(196,164,107,0.3)' },
+   'full-time': {
+      label: 'Full-Time',
+      text: 'text-brand-red',
+      bg: 'bg-brand-red/10',
+      border: 'border-brand-red/20',
+   },
+   internship: {
+      label: 'Internship',
+      text: 'text-amber-500',
+      bg: 'bg-amber-500/10',
+      border: 'border-amber-500/20',
+   },
+   'co-op': {
+      label: 'Co-op',
+      text: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
+   },
+   'part-time': {
+      label: 'Part-Time',
+      text: 'text-emerald-500',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
+   },
+   contract: {
+      label: 'Contract',
+      text: 'text-violet-500',
+      bg: 'bg-violet-500/10',
+      border: 'border-violet-500/20',
+   },
+   freelance: {
+      label: 'Freelance',
+      text: 'text-brand-tan',
+      bg: 'bg-brand-tan/10',
+      border: 'border-brand-tan/20',
+   },
 };
 
 /**
  * ExperienceCard
- *
- * @param {string}   role        - Job title / role name
- * @param {string}   company     - Company name
- * @param {string}   period      - Time period (e.g. "Jan 2024 – May 2024")
- * @param {string}   description - Short blurb about the role
- * @param {string[]} tags        - Technology / skill tags
- * @param {boolean}  active      - Whether this is the current role
- * @param {string}   type        - Employment type key (see TYPE_CONFIG above)
  */
-function ExperienceCard({ role, company, period, description, tags = [], active = false, type }) {
-   const typeConfig = TYPE_CONFIG[type] ?? { label: type ?? 'Other', color: '#B8956A', bg: 'rgba(184,149,106,0.1)', border: 'rgba(184,149,106,0.25)' };
+function ExperienceCard({
+   role,
+   company,
+   period,
+   description,
+   tags = [],
+   active = false,
+   type = '',
+}) {
+   const normalizedType = type.toLowerCase().replace(' ', '-');
+   const config = TYPE_CONFIG[normalizedType] ?? {
+      label: type || 'Other',
+      text: 'text-brand-tan-dark',
+      bg: 'bg-brand-tan-dark/10',
+      border: 'border-brand-tan-dark/20',
+   };
 
    return (
-      <div className="relative pl-10 flex flex-col gap-1.5 group">
+      <div className="relative pl-12 flex flex-col gap-2 group">
          {/* Timeline dot */}
          <div
-            className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-brand-brown-dark transition-transform duration-200 group-hover:scale-125 ${active
-               ? 'bg-brand-red shadow-[0_0_0_3px_rgba(181,48,40,0.3)]'
-               : 'bg-brand-brown-medium'
-               }`}
+            className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-brand-brown-dark transition-all duration-300 group-hover:scale-125 ${
+               active
+                  ? 'bg-brand-red shadow-brand-red'
+                  : 'bg-brand-brown-medium'
+            }`}
          />
 
          {/* Header row: role + period */}
-         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-            <h3 className="font-serif text-base font-bold text-brand-cream leading-snug">
+         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+            <h3 className="font-serif text-lg font-bold text-brand-cream leading-snug group-hover:text-brand-red/90 transition-colors duration-300">
                {role}
             </h3>
-            <span className="text-xs font-mono text-brand-accent-brown whitespace-nowrap">
+            <span className="text-sm font-mono text-brand-accent-brown whitespace-nowrap brightness-110">
                {period}
             </span>
          </div>
 
          {/* Company + type badge row */}
-         <div className="flex flex-wrap items-center gap-2">
-            <p className="text-lg font-semibold text-brand-red">{company}</p>
+         <div className="flex flex-wrap items-center gap-3">
+            <p className="text-lg font-bold text-brand-red/90 tracking-tight">
+               {company}
+            </p>
 
             {/* Experience type badge */}
             <span
-               style={{
-                  color: typeConfig.color,
-                  backgroundColor: typeConfig.bg,
-                  borderColor: typeConfig.border,
-               }}
-               className="inline-flex items-center text-[0.65rem] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded-full border"
+               className={`
+                  inline-flex items-center text-[10px] font-mono font-bold tracking-widest uppercase 
+                  px-2 py-0.5 rounded-md border transition-colors duration-300
+                  ${config.text} ${config.bg} ${config.border}
+               `}
             >
-               {typeConfig.label}
+               {config.label}
             </span>
          </div>
 
          {/* Description */}
-         <p className="text-sm text-brand-tan leading-relaxed">{description}</p>
+         <p className="text-sm text-brand-tan leading-relaxed max-w-2xl">
+            {description}
+         </p>
 
          {/* Tech tags */}
          {tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mt-0.5">
+            <div className="flex flex-wrap gap-2 mt-1">
                {tags.map((tag) => (
                   <span
                      key={tag}
-                     className="text-xs font-mono px-2.5 py-1 rounded-md bg-brand-brown-light border border-brand-brown-medium text-brand-tan-dark font-semibold transition-colors duration-150 hover:border-brand-accent-brown"
+                     className="text-sm font-mono px-2 py-0.5 rounded
+                                bg-brand-brown-dark border border-brand-coffee text-brand-tan-dark font-medium
+                                transition-colors duration-200 hover:border-brand-accent-brown hover:text-brand-tan"
                   >
                      {tag}
                   </span>
