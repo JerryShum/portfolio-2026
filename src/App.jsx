@@ -26,7 +26,7 @@ function App() {
          </div>
 
          {/* Foreground UI Layer — left half panel */}
-         <div className="absolute left-0 top-0 bottom-0 w-[40%] z-10">
+         <div className="absolute left-0 top-0 bottom-0 w-[50%] z-10">
             <TransitionComponent>
                <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<HomePage />} />
