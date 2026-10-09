@@ -23,7 +23,7 @@ const LINKS = [
       icon: LinkedInIcon,
    },
    { label: 'Email', href: 'mailto:j.shum@outlook.com', icon: EmailIcon },
-   { label: 'Resume', href: '/jerry_shum_engineer.pdf', icon: ResumeIcon },
+   { label: 'Resume', href: '/jerry_shum_resume.pdf', icon: ResumeIcon },
 ];
 
 const SKILLS = [

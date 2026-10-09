@@ -8,6 +8,22 @@ import ExperienceCard from '../components/ExperienceCard';
 
 const experiences = [
    {
+      role: 'Information Security Specialist',
+      company: 'Celestica',
+      period: 'May 2026 — Present',
+      type: 'Full-Time',
+      description:
+         'Hardened the global endpoint fleet by administering ThreatLocker allowlisting across 40+ sites, tuning CrowdStrike Falcon policies to reduce false positives without weakening protection, building Python automations on GCP to reconcile ThreatLocker and ServiceNow records, and triaging phishing reports in Check Point Harmony Email.',
+      tags: [
+         'CrowdStrike Falcon',
+         'ThreatLocker',
+         'Check Point Harmony',
+         'Python',
+         'GCP',
+      ],
+      active: true,
+   },
+   {
       role: 'IT Application Developer',
       company: 'Celestica',
       period: 'May 2024 — August 2025',
@@ -15,7 +31,7 @@ const experiences = [
       description:
          'Automated business processes by developing internal applications and custom JavaScript solutions, while engineering REST API integrations and comprehensive unit test suites within an Agile framework.',
       tags: ['JavaScript', 'REST API', 'Unit Testing', 'Agile', 'Postman'],
-      active: true,
+      active: false,
    },
    {
       role: 'Software Developer',
@@ -63,8 +79,8 @@ function ExperiencePage() {
          {/* Fixed Footer with Download Resume Button */}
          <div className="px-10 py-6 border-t border-brand-coffee bg-brand-brown-dark flex justify-center ">
             <a
-               href="/jerry_shum_engineer.pdf"
-               download="jerry_shum_engineer.pdf"
+               href="/jerry_shum_resume.pdf"
+               download="jerry_shum_resume.pdf"
                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red ease hover:scale-105 transition-all duration-300 hover:brightness-95"
             >
                {/* Download icon */}
