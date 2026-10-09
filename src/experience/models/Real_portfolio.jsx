@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import gsap from 'gsap';
+import { openExternalLink } from '../../lib/openExternalLink';
 
 function HoverableText({
    route,
@@ -252,7 +253,7 @@ const Model = forwardRef((props, ref) => {
 
          <HoverableText
             onClickAction={() =>
-               window.open('https://www.linkedin.com/in/jerry-shum/', '_blank')
+               openExternalLink('https://www.linkedin.com/in/jerry-shum/')
             }
             geometry={nodes.Linkedin.geometry}
             material={materials['Linkedin - Blue']}
@@ -264,7 +265,7 @@ const Model = forwardRef((props, ref) => {
          />
          <HoverableText
             onClickAction={() =>
-               window.open('https://github.com/JerryShum', '_blank')
+               openExternalLink('https://github.com/JerryShum')
             }
             geometry={nodes.Github.geometry}
             material={materials.Github}

@@ -4,7 +4,7 @@ import { playlist } from '../data/music';
 const MusicPlayer = () => {
    const [isPlaying, setIsPlaying] = useState(false);
    const [currentTrack, setCurrentTrack] = useState(0);
-   const [volume, setVolume] = useState(0.2);
+   const [volume, setVolume] = useState(0.1);
    const [currentTime, setCurrentTime] = useState(0);
    const [duration, setDuration] = useState(0);
    const audioRef = useRef(null);
@@ -78,7 +78,7 @@ const MusicPlayer = () => {
 
    return (
       <div
-         className="fixed right-3 top-4 px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl z-50 bg-brand-brown-dark/90 backdrop-blur-xl border-brand-tan-dark/15 shadow-black/60"
+         className="fixed right-3 top-4 w-[26rem] px-4 py-3 rounded-lg hidden md:block pointer-events-auto border shadow-xl z-50 bg-brand-brown-dark/90 backdrop-blur-xl border-brand-tan-dark/15 shadow-black/60"
       >
          <div className="flex flex-col gap-2">
             {/* Main Player Row */}
@@ -114,7 +114,7 @@ const MusicPlayer = () => {
                </div>
 
                {/* Track Info */}
-               <div className="min-w-0 shrink-0">
+               <div className="min-w-0 flex-1">
                   <h3
                      className="font-semibold text-sm truncate text-brand-cream"
                   >
@@ -129,6 +129,7 @@ const MusicPlayer = () => {
                <div className="flex items-center space-x-2">
                   <button
                      onClick={playPrevious}
+                     aria-label="Previous track"
                      className="transition-colors text-brand-accent-brown hover:text-brand-red"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -138,6 +139,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={togglePlayPause}
+                     aria-label={isPlaying ? 'Pause' : 'Play'}
                      className="transition-colors text-brand-red hover:text-red-500"
                   >
                      {isPlaying ? (
@@ -161,6 +163,7 @@ const MusicPlayer = () => {
 
                   <button
                      onClick={playNext}
+                     aria-label="Next track"
                      className="transition-colors text-brand-accent-brown hover:text-brand-red"
                   >
                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
