@@ -1,9 +1,9 @@
 
 # TODO LIST
-- [ ] Adjust the content of every page
+- [x] About Me --> image, description, more detail
+- [x] Experience --> Information Security Specialist role + refreshed résumé PDF
 - [ ] Projects --> convert to cards with images and a description
 - [ ] Blog --> no blogs right now, check back later!
-- [ ] About Me --> image, description, more detail 
 
 ---
 

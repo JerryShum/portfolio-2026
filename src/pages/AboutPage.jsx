@@ -3,13 +3,12 @@ import ProfileImage from '../components/ProfileImage';
 import AchievementCard from '../components/AchievementCard';
 
 const NAME = 'Jerry Shum';
-const TAGLINE =
-   'Full-Stack Developer & Currently a Software Engineering Student';
-const BIO = `I'm a Software Engineering student at OntarioTech University and I like building things. My journey started with making websites look good on the outside, but lately, I've been obsessed with learning how everything works under the hood.
+const TAGLINE = 'Full-Stack Developer & Information Security Specialist';
+const BIO = `I'm a Software Engineering graduate from Ontario Tech University and I like building things. My journey started with making websites look good on the outside, but these days I'm just as interested in what happens underneath, and in what happens when something breaks.
 
-Lately, I've been trying to push past the client side to and pushing myself to learn how to build robust, scalable back-ends using Hono, TypeScript, and Bun. I'm a big believer in getting 1% better at my craft every and strive to keep improving myself and my skills!
+Lately, I've been pushing past the client side to learn how to build robust, scalable back-ends with Hono, TypeScript, and Bun. I write tests for the things I ship, and that habit is what pulled me toward security: I'm currently an Information Security Specialist at Celestica, hardening endpoints across 40+ global sites, automating repetitive work in Python, and triaging phishing reports.
 
-I'm set to graduate in June 2026 and am currently looking for opportunities to get my hands dirty. I want to apply what I'm learning to build tools that are actually useful, while growing my skills alongside a great team.`;
+I'm a big believer in getting 1% better at my craft every day, and I want to keep applying that to building tools that are actually useful, while growing alongside a great team.`;
 
 const LINKS = [
    {
@@ -33,31 +32,61 @@ const SKILLS = [
          'React',
          'Next.js',
          'TypeScript',
+         'Tailwind CSS',
          'Three.js / R3F',
          'GSAP',
-         'Tailwind CSS',
+         'Zustand',
       ],
    },
    {
       category: 'Backend',
-      items: ['Node.js', 'Express', 'PostgreSQL', 'REST APIs', 'Better-Auth'],
+      items: [
+         'Node.js',
+         'Hono',
+         'Python',
+         'PostgreSQL',
+         'REST APIs',
+         'Supabase',
+      ],
    },
    {
-      category: 'Tooling & Design',
-      items: ['Blender', 'Figma', 'Git', 'Vite', 'Zustand'],
+      category: 'Security',
+      items: [
+         'CrowdStrike Falcon',
+         'ThreatLocker',
+         'Check Point Harmony Email',
+      ],
+   },
+   {
+      category: 'QA & Testing',
+      items: [
+         'ServiceNow ATF',
+         'UAT & Test Case Design',
+         'Vitest',
+         'Postman',
+         'JIRA',
+      ],
+   },
+   {
+      category: 'Cloud & Tooling',
+      items: ['GCP', 'Docker', 'Git', 'GitHub Actions', 'Vite', 'FFmpeg'],
+   },
+   {
+      category: 'Design',
+      items: ['Blender', 'Figma'],
    },
 ];
 
 const ACHIEVEMENTS = [
    {
-      title: '1st Place (Consecutive)',
-      competition: 'Internal Engineering Competition - OTU',
-      period: '2023 - 2025',
+      title: '1st Place Overall',
+      competition: 'NASA Space Apps Challenge - Oshawa',
+      period: '2024',
    },
    {
-      title: '2nd Place',
-      competition: 'NASA Space Apps',
-      period: '2025',
+      title: '1st Place (Programming & Consulting)',
+      competition: 'Ontario Tech IEC',
+      period: '2023 - 2024',
    },
    {
       title: '3rd Place (Programming)',
@@ -74,12 +103,6 @@ const ACHIEVEMENTS = [
       competition: 'HawkHacks',
       period: '2024',
    },
-   {
-      title: '3rd Place',
-      competition: 'NASA Space Apps',
-      period: '2023',
-   },
-
 ];
 
 const FUN_FACTS = [
@@ -180,6 +203,34 @@ function AboutPage() {
 
             <div className="border-t border-brand-coffee" />
 
+            {/* Skills Section */}
+            <section className="flex flex-col gap-2">
+               <SectionLabel>Skills</SectionLabel>
+               <div className="flex flex-col gap-4">
+                  {SKILLS.map(({ category, items }) => (
+                     <div key={category} className="flex flex-col gap-2">
+                        <h3 className="text-[11px] font-bold text-brand-tan/90 uppercase tracking-widest font-mono">
+                           {category}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                           {items.map((item) => (
+                              <span
+                                 key={item}
+                                 className="text-[11px] font-mono px-2 py-0.5 rounded-md
+                                             bg-brand-brown-dark border border-brand-coffee text-brand-tan/70
+                                             hover:text-brand-tan hover:border-brand-tan/30 transition-all duration-300"
+                              >
+                                 {item}
+                              </span>
+                           ))}
+                        </div>
+                     </div>
+                  ))}
+               </div>
+            </section>
+
+            <div className="border-t border-brand-coffee" />
+
             {/* Achievements Section */}
             <section className="flex flex-col gap-2">
                <SectionLabel>Achievements</SectionLabel>
@@ -195,7 +246,7 @@ function AboutPage() {
             {/* Contact & Links */}
             <section className="flex flex-col gap-2">
                <SectionLabel>Find Me</SectionLabel>
-               <div className="flex flex-wrap gap-3 items-center justify-center 5">
+               <div className="flex flex-wrap gap-3 items-center justify-center">
                   {LINKS.map(({ label, href, icon: Icon }) => (
                      <a
                         key={label}
