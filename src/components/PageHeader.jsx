@@ -1,8 +1,6 @@
-import { useLocation } from 'react-router-dom';
 import { useTransitionStore } from '../store/useTransitionStore';
 
 function PageHeader({ name, tagline }) {
-   const location = useLocation();
    const { startExit, isExiting } = useTransitionStore();
 
    const handleClose = () => {

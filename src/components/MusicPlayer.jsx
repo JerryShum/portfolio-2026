@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { playlist } from '../data/music';
 
 const MusicPlayer = () => {
    const [isPlaying, setIsPlaying] = useState(false);
@@ -7,28 +8,6 @@ const MusicPlayer = () => {
    const [currentTime, setCurrentTime] = useState(0);
    const [duration, setDuration] = useState(0);
    const audioRef = useRef(null);
-
-   // music playlist --> links to mp3 & thumbnail
-   const playlist = [
-      {
-         title: 'Sunset Bridge',
-         artist: 'ATLUS Sound Team',
-         src: '/music/mp3/sunset_bridge.mp3',
-         image: '/music/thumbnails/p5_thumbnail.webp',
-      },
-      {
-         title: 'Butterfly Kiss',
-         artist: 'ATLUS Sound Team',
-         src: '/music/mp3/butterfly_kiss.mp3',
-         image: '/music/thumbnails/p5_thumbnail.webp',
-      },
-      {
-         title: 'Black Heaven',
-         artist: 'Studio EIM',
-         src: '/music/mp3/black_heaven.mp3',
-         image: '/music/thumbnails/black_heaven.webp',
-      },
-   ];
 
    const togglePlayPause = () => {
       if (isPlaying) {

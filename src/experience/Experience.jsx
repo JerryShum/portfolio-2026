@@ -1,5 +1,5 @@
-import { Canvas, useThree } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { useRef } from 'react';
 import Scene from './Scene';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { useLocation } from 'react-router-dom';
@@ -36,7 +36,7 @@ function Experience() {
                maxPolarAngle={Math.PI / 2}
                enablePan={true}
                makeDefault
-               onChange={(e) => {
+               onChange={() => {
                   if (controlsRef.current) {
                      // Clamp target Y to prevent going "under" the model
                      controlsRef.current.target.y = Math.max(

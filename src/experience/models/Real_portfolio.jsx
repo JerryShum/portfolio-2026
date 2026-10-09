@@ -113,7 +113,6 @@ function HoverableText({
 
 const Model = forwardRef((props, ref) => {
    const { nodes, materials } = useGLTF('/models/Untitled.glb');
-   const navigate = useNavigate();
    const { camera, controls } = useThree();
 
    const [hovered, setHovered] = useState(false);

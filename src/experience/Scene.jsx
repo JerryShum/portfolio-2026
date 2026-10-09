@@ -1,8 +1,6 @@
-import { Suspense, useRef, useEffect } from 'react';
+import { Suspense } from 'react';
 import Model from './models/Real_portfolio';
-import { useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
-import * as THREE from 'three';
 
 function Scene() {
    return (

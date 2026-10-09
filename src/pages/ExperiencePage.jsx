@@ -1,59 +1,11 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import ExperienceCard from '../components/ExperienceCard';
+import { experiences } from '../data/experiences';
+import { RESUME_PATH, RESUME_FILENAME } from '../data/site';
 
 const NAME = 'Experience';
 const TAGLINE = "Where I've worked & what I've done";
-
-import ExperienceCard from '../components/ExperienceCard';
-
-const experiences = [
-   {
-      role: 'Information Security Specialist',
-      company: 'Celestica',
-      period: 'May 2026 — Present',
-      type: 'Full-Time',
-      description:
-         'Hardened the global endpoint fleet by administering ThreatLocker allowlisting across 40+ sites, tuning CrowdStrike Falcon policies to reduce false positives without weakening protection, building Python automations on GCP to reconcile ThreatLocker and ServiceNow records, and triaging phishing reports in Check Point Harmony Email.',
-      tags: [
-         'CrowdStrike Falcon',
-         'ThreatLocker',
-         'Check Point Harmony',
-         'Python',
-         'GCP',
-      ],
-      active: true,
-   },
-   {
-      role: 'IT Application Developer',
-      company: 'Celestica',
-      period: 'May 2024 — August 2025',
-      type: 'Internship',
-      description:
-         'Automated business processes by developing internal applications and custom JavaScript solutions, while engineering REST API integrations and comprehensive unit test suites within an Agile framework.',
-      tags: ['JavaScript', 'REST API', 'Unit Testing', 'Agile', 'Postman'],
-      active: false,
-   },
-   {
-      role: 'Software Developer',
-      company: 'Arkhet AI Inc.',
-      period: 'Feb 2025 — Apr 2025',
-      type: 'Part-Time',
-      description:
-         'Architected responsive interfaces using React and Shadcn UI, engineered type-safe REST APIs with Hono, and integrated AI-driven features into core application workflows.',
-      tags: ['React', 'TypeScript', 'Hono', 'TailwindCSS', 'LLM'],
-      active: false,
-   },
-   {
-      role: 'Frontend Developer',
-      company: 'Magnify Access',
-      period: 'Jan 2024 — May 2024',
-      type: 'Internship',
-      description:
-         'Engineered accessible, user-centric interfaces compliant with WCAG 2.1 standards and executed SEO best practices.',
-      tags: ['WCAG', 'Accessibility', 'SEO', 'Lighthouse'],
-      active: false,
-   },
-];
 
 function ExperiencePage() {
    return (
@@ -79,8 +31,8 @@ function ExperiencePage() {
          {/* Fixed Footer with Download Resume Button */}
          <div className="px-10 py-6 border-t border-brand-coffee bg-brand-brown-dark flex justify-center ">
             <a
-               href="/jerry_shum_resume.pdf"
-               download="jerry_shum_resume.pdf"
+               href={RESUME_PATH}
+               download={RESUME_FILENAME}
                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand-gradient border border-brand-cream/10 text-brand-cream font-sans text-sm font-semibold tracking-wider uppercase no-underline cursor-pointer shadow-brand-red ease hover:scale-105 transition-all duration-300 hover:brightness-95"
             >
                {/* Download icon */}
