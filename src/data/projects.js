@@ -24,8 +24,8 @@ export const projects = [
       emoji: '🎨',
       title: 'Portfolio 2026',
       description:
-         'Interactive personal portfolio showcasing modern web design and development skills with dynamic routing and engaging user experiences.',
-      tags: ['JavaScript', 'React', 'Modern UI', 'Responsive Design'],
+         'This site: an interactive 3D scene built with React Three Fiber where clicking objects opens each page, with GSAP page transitions and a built-in music player. Covered by a Vitest test suite that runs automatically through GitHub Actions.',
+      tags: ['React', 'Three.js', 'GSAP', 'Tailwind CSS', 'Vitest'],
       github: 'https://github.com/JerryShum/portfolio-2026',
       status: 'live',
    },
