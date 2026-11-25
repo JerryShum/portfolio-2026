@@ -27,8 +27,8 @@ function GitHubArrowIcon() {
 }
 
 /**
- * ProjectCard — Vertical Hero layout.
- * Best for Grid displays.
+ * ProjectCard — horizontal card: emoji panel on the left, details on the
+ * right (stacks vertically on small screens). Shown in a single column.
  */
 function ProjectCard({ project }) {
    const status = STATUS_CONFIG[project.status] ?? STATUS_CONFIG.live;
