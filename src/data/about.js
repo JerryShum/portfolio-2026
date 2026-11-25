@@ -17,12 +17,12 @@ I'm a big believer in getting 1% better at my craft every day, and I want to kee
 export const LINKS = [
    {
       label: 'GitHub',
-      href: 'https://github.com/jerryshum',
+      href: 'https://github.com/JerryShum',
       icon: GitHubIcon,
    },
    {
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/jerry-shum',
+      href: 'https://www.linkedin.com/in/jerry-shum/',
       icon: LinkedInIcon,
    },
    { label: 'Email', href: 'mailto:j.shum@outlook.com', icon: EmailIcon },
@@ -36,19 +36,24 @@ export const SKILLS = [
          'React',
          'Next.js',
          'TypeScript',
+         'JavaScript',
          'Tailwind CSS',
          'Three.js / R3F',
          'GSAP',
          'Zustand',
+         'TanStack Query',
+         'Zod',
       ],
    },
    {
       category: 'Backend',
       items: [
          'Node.js',
+         'Bun',
          'Hono',
          'Python',
          'PostgreSQL',
+         'SQL',
          'REST APIs',
          'Supabase',
       ],
@@ -65,7 +70,6 @@ export const SKILLS = [
       category: 'QA & Testing',
       items: [
          'ServiceNow ATF',
-         'UAT & Test Case Design',
          'Vitest',
          'Postman',
          'JIRA',
@@ -73,7 +77,15 @@ export const SKILLS = [
    },
    {
       category: 'Cloud & Tooling',
-      items: ['GCP', 'Docker', 'Git', 'GitHub Actions', 'Vite', 'FFmpeg'],
+      items: [
+         'GCP',
+         'ServiceNow',
+         'Docker',
+         'Git',
+         'GitHub Actions',
+         'Vite',
+         'FFmpeg',
+      ],
    },
    {
       category: 'Design',
@@ -81,21 +93,22 @@ export const SKILLS = [
    },
 ];
 
+// Newest first, matching the résumé.
 export const ACHIEVEMENTS = [
+   {
+      title: '3rd Place (Programming)',
+      competition: 'Ontario Engineering Competition',
+      period: '2025',
+   },
    {
       title: '1st Place Overall',
       competition: 'NASA Space Apps Challenge - Oshawa',
       period: '2024',
    },
    {
-      title: '1st Place (Programming & Consulting)',
-      competition: 'Ontario Tech IEC',
-      period: '2023 - 2024',
-   },
-   {
-      title: '3rd Place (Programming)',
-      competition: 'Ontario Engineering Competition',
-      period: '2025',
+      title: 'Hacker',
+      competition: 'HawkHacks',
+      period: '2024',
    },
    {
       title: 'Competitor (Consulting)',
@@ -103,9 +116,9 @@ export const ACHIEVEMENTS = [
       period: '2024',
    },
    {
-      title: 'Hacker',
-      competition: 'HawkHacks',
-      period: '2024',
+      title: '1st Place (Programming & Consulting)',
+      competition: 'Ontario Tech IEC',
+      period: '2023 - 2024',
    },
 ];
 

@@ -23,8 +23,8 @@ export const experiences = [
       period: 'May 2024 — August 2025',
       type: 'Internship',
       description:
-         'Automated business processes by developing internal applications and custom JavaScript solutions, while engineering REST API integrations and comprehensive unit test suites within an Agile framework.',
-      tags: ['JavaScript', 'REST API', 'Unit Testing', 'Agile', 'Postman'],
+         'Built and shipped internal ServiceNow and JavaScript applications that automated manual workflows, saving 50+ employees 5 hours each per week (250+ hours weekly). Wrote reusable server-side Script Includes for REST integrations, and raised test coverage by 50% with ServiceNow\'s Automated Test Framework (ATF), catching critical regressions before production.',
+      tags: ['ServiceNow', 'JavaScript', 'REST API', 'ATF', 'Postman'],
       active: false,
    },
    {
@@ -33,8 +33,8 @@ export const experiences = [
       period: 'Feb 2025 — Apr 2025',
       type: 'Part-Time',
       description:
-         'Architected responsive interfaces using React and Shadcn UI, engineered type-safe REST APIs with Hono, and integrated AI-driven features into core application workflows.',
-      tags: ['React', 'TypeScript', 'Hono', 'TailwindCSS', 'LLM'],
+         'Contributed to the V1 frontend with React and Shadcn UI ahead of the beta launch, designed type-safe REST APIs and middleware with Hono on edge-compatible runtimes, and modernized the stack with TanStack Query and Zod for end-to-end type safety.',
+      tags: ['React', 'TypeScript', 'Hono', 'TanStack Query', 'Zod'],
       active: false,
    },
    {
@@ -43,7 +43,7 @@ export const experiences = [
       period: 'Jan 2024 — May 2024',
       type: 'Internship',
       description:
-         'Engineered accessible, user-centric interfaces compliant with WCAG 2.1 standards and executed SEO best practices.',
+         'Delivered WCAG 2.1 compliant interfaces with ARIA labels and keyboard navigation, and optimized SEO and frontend performance, driving a 20% increase in organic web traffic.',
       tags: ['WCAG', 'Accessibility', 'SEO', 'Lighthouse'],
       active: false,
    },
