@@ -1,6 +1,6 @@
 # Jerry Shum — Portfolio
 
-My personal portfolio site. The home page is an interactive 3D scene: click
+My personal portfolio site, live at <https://jerryshum.netlify.app/>. The home page is an interactive 3D scene: click
 objects in it to open the About, Projects, Experience and Blog pages.
 
 Built with React, React Three Fiber (Three.js), GSAP, Tailwind CSS and Vite.
