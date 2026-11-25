@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import BlogPage from './pages/BlogPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './app.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                   <Route path="/projects" element={<ProjectsPage />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/blog" element={<BlogPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                </Routes>
             </TransitionComponent>
          </div>
