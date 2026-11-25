@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import process from 'node:process';
 import { describe, expect, it } from 'vitest';
@@ -127,5 +127,17 @@ describe('links', () => {
 
    it('includes exactly one résumé link pointing at the résumé asset', () => {
       expect(LINKS.filter((link) => link.href === RESUME_PATH)).toHaveLength(1);
+   });
+});
+
+describe('netlify routing', () => {
+   // Without this rule, opening or refreshing /about (or any page but the
+   // home page) on Netlify returns Netlify's own "Page not found".
+   it('serves the app for every path so React Router can handle it', () => {
+      const redirects = publicFile('/_redirects');
+      expect(existsSync(redirects), 'expected public/_redirects').toBe(true);
+      expect(readFileSync(redirects, 'utf8')).toMatch(
+         /^\/\*\s+\/index\.html\s+200\s*$/m,
+      );
    });
 });

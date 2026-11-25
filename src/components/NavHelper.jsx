@@ -3,11 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { useTransitionStore } from '../store/useTransitionStore';
 
 const routes = [
-   { path: '/', label: 'Home', emoji: '' },
-   { path: '/about', label: 'About', emoji: '' },
-   { path: '/projects', label: 'Projects', emoji: '' },
-   { path: '/experience', label: 'Experience', emoji: '' },
-   { path: '/blog', label: 'Blog', emoji: '' },
+   { path: '/', label: 'Home' },
+   { path: '/about', label: 'About' },
+   { path: '/projects', label: 'Projects' },
+   { path: '/experience', label: 'Experience' },
+   { path: '/blog', label: 'Blog' },
 ];
 
 function NavHelper() {
@@ -30,7 +30,7 @@ function NavHelper() {
                ${isOpen ? 'opacity-100 scale-100 visible translate-y-0' : 'md:opacity-100 md:scale-100 md:visible opacity-0 scale-90 invisible translate-y-4 md:translate-y-0'}
             `}
          >
-            {routes.map(({ path, label, emoji }) => {
+            {routes.map(({ path, label }) => {
                const isActive = location.pathname === path;
                return (
                   <button
@@ -44,7 +44,6 @@ function NavHelper() {
                         }
                      `}
                   >
-                     {emoji && <span className="text-[1rem]">{emoji}</span>}
                      {label}
                   </button>
                );

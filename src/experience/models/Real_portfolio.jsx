@@ -113,7 +113,7 @@ function HoverableText({
 }
 
 const Model = forwardRef((props, ref) => {
-   const { nodes, materials } = useGLTF('/models/Untitled.glb');
+   const { nodes, materials } = useGLTF('/models/portfolio-scene.glb');
    const { camera, controls } = useThree();
 
    const [hovered, setHovered] = useState(false);
@@ -336,4 +336,4 @@ const Model = forwardRef((props, ref) => {
 
 export default Model;
 
-useGLTF.preload('/models/Untitled.glb');
+useGLTF.preload('/models/portfolio-scene.glb');
